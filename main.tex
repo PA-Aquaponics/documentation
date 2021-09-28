@@ -14,9 +14,12 @@
 \usepackage{todonotes}
 \usepackage{listings}
 \usepackage[backend=bibtex, style=ieee, citestyle=ieee]{biblatex}
+\usepackage{csquotes}
 
 % Misc Packages
-
+\usepackage{svg}
+\usepackage{fancyhdr}
+\usepackage{authblk}
 
 % End Packages
 %------------------------------------------------------------
@@ -67,9 +70,79 @@
 	bottom=1.5cm, % Bottom margin
 	%showframe, % Uncomment to show how the type block is set on the page
 }
+
+% Paths
+\graphicspath{{images/}}
+\svgpath{{images/svg/}}
+\pagestyle{fancy}
+\fancyhf{}
+
 % End Geometry / Margin Settings
 %------------------------------------------------------------
 
+%------------------------------------------------------------
+% DOCUMENT SPECIFIC
+% Author
+\author{
+	Deniz Akca
+	\and
+	Dennis Bannerman
+	\and
+	Mike Iten
+}
+\affil{ZHAW - Zurich}
+
+% Project
+\newcommand{\project}{Projektarbeit Aquaponik}
+\newcommand{\outline}{Anforderungsanalyse und Umsetzung einer Software-Lösung im Bereich Aquaponik am Beispiel der ZHAW Wädenswil}
+
+% Title
+\title{
+	\Huge{}\color{blue}\textbf{\project}\\ 
+	\vspace{2cm}
+	\large{}\color{black}\textbf{\outline}
+}
+
+% Define titlepage layout
+\makeatletter
+\def\@maketitle{%
+	\newpage
+	\null
+	\vskip 1cm%
+	\begin{center}%
+		\let \footnote \thanks
+		{\LARGE \@title \par}%
+		\vskip 2cm%
+		{\large
+			\lineskip .25em%
+			\begin{tabular}[t]{c}%
+				\@author
+			\end{tabular}\par}%
+		\vfill%
+		{\large \@date}
+	\end{center}%
+	\par
+	\vskip 1.5em
+}
+\makeatother
+
+%------------------------------------------------------------
+
 \begin{document}
+	\sloppy
+	\pagenumbering{roman}
+	
+	\begin{titlepage}
+		\maketitle
+		\thispagestyle{empty}
+	\end{titlepage}
+	
+	\tableofcontents
+	\newpage
+	
+	% Page numbering is arabic henceforth
+	\pagenumbering{arabic}
+	\fussy
+	
 	content...
 \end{document}
