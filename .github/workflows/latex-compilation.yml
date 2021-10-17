@@ -96,7 +96,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ needs.create_new_release_tag.outputs.new-tag }}
+          tag_name: ${{ needs.create_release.outputs.new-tag }}
           files: main.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.AUTO_RELEASE_TOKEN }}
