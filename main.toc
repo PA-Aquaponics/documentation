@@ -17,10 +17,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}Design}{1}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Frontend Technologie}{1}{}%
+\contentsline {subsection}{\numberline {3.1}Hosting}{1}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Umsetzung}{1}{}%
+\contentsline {subsection}{\numberline {3.2}Backend Technologie}{1}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Test}{1}{}%
+\contentsline {subsection}{\numberline {3.3}OpenAPI}{1}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Fazit}{1}{}%
+\contentsline {subsection}{\numberline {3.4}Frontend Technologie}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Umsetzung}{2}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Test}{2}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Fazit}{2}{}%
