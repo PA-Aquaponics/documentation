@@ -1,0 +1,26 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {ngerman}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Recherche}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}Sensordaten}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}Host}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3}Backend Technologie}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Analyse}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Problem}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Lösung}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Design}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Frontend Technologie}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Umsetzung}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Test}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Fazit}{1}{}%
