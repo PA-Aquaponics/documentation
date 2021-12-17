@@ -33,6 +33,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1}Sprint 0 Meeting}{2}%
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Sprint 1 Meeting}{3}%
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6}Verzeichnisse}{3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1}Literaturverzeichnis}{3}%
