@@ -211,7 +211,7 @@
 	Docker kann sehr vielfältig eingesetzt werden, aber worin Docker seine stärken hat ist im Deployment. Mit einem gutem Docker-Compose File ist ein komplexes Multi-Container System mit einem Befehl aufgesetzt.
 	
 	\subsubsection{Docker-Image}
-	Von unserer Spring-Boot Applikation erstellen wir ein Image welches auf DockerHub hochgeladen wird. 
+	Von unserer Spring-Boot Applikation erstellen wir ein Image welches auf DockerHub hochgeladen wird. Von der Datenbank erstellen wir kein Image da DockerHub wie Github öffentlich zugänglich ist und wir die Datenbank nicht veröffentlichen wollen. Die Datenbank wird dann beim erstellen des MySQL Containers eingelesen wie im nächsten Abschnitt erklärt.
 	
 	\subsubsection{Docker-Compose}
 	Das Docker-Compose holt sich die neuste Version der Applikation und erstellt ein Netzwerk für das Gesamte PAAQ-System. Der Applikation wird ein Portforwarding eingerichtet, dass diese auch von Aussen zugänglich ist. Anschliessend wird auch ein MySQL-Container heruntergeladen und in das gleiche Netzwerk eingehängt, dass eine Kommunikation zwischen Spring-Boot Applikation und MySQL-Datenbank statt finden kann. Der MySQL Datenbank wird noch der Dump der alten Datenbank mitgegeben, dass eine exakte Kopie der vorherigen Datenbank erstellt.
