@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  18 DEC 2021 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  18 DEC 2021 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -965,32 +965,49 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout5 = `main.toc'.
 
 
-[1] [1]
-<images/Swagger.png, id=45, 529.98pt x 626.34pt>
+[1]
+<images/Modbusentity.png, id=42, 811.53188pt x 400.49625pt>
+File: images/Modbusentity.png Graphic file (type png)
+<use images/Modbusentity.png>
+Package pdftex.def Info: images/Modbusentity.png  used on input line 163.
+(pdftex.def)             Requested size: 405.76494pt x 200.24763pt.
+
+Overfull \hbox (1.73586pt too wide) in paragraph at lines 163--164
+ [][] 
+ []
+
+[1 <./images/Modbusentity.png>]
+<images/Swagger.png, id=48, 529.98pt x 626.34pt>
 File: images/Swagger.png Graphic file (type png)
 <use images/Swagger.png>
-Package pdftex.def Info: images/Swagger.png  used on input line 198.
+Package pdftex.def Info: images/Swagger.png  used on input line 205.
 (pdftex.def)             Requested size: 211.98824pt x 250.53156pt.
+ [2 <./images/Swagger.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-25.
- (c:/texlive/2019/texmf-dist/tex/latex/base/t1cmtt.fd
+32.
+
+(c:/texlive/2019/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [2 <./images/Swagger.png>]
-<images/SC1000_Example.jpg, id=52, 881.54344pt x 368.87813pt>
+)
+<images/SC1000_Example.jpg, id=53, 881.54344pt x 368.87813pt>
 File: images/SC1000_Example.jpg Graphic file (type jpg)
 <use images/SC1000_Example.jpg>
-Package pdftex.def Info: images/SC1000_Example.jpg  used on input line 249.
+Package pdftex.def Info: images/SC1000_Example.jpg  used on input line 256.
 (pdftex.def)             Requested size: 352.61113pt x 147.54863pt.
- [3 <./images/SC1000_Example.jpg>] [4] (./main.aux)
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3] [4 <./images/SC1000_Example.jpg>] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24405 strings out of 480994
- 466021 string characters out of 5916033
- 1121119 words of memory out of 5000000
- 39482 multiletter control sequences out of 15000+600000
+ 24413 strings out of 480994
+ 466198 string characters out of 5916033
+ 1122127 words of memory out of 5000000
+ 39490 multiletter control sequences out of 15000+600000
  539922 words of font info for 35 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  68i,11n,83p,873b,2297s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1002,10 +1019,10 @@ e1/public/cm-super/sfbx1440.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/
 cm-super/sfbx2488.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/s
 frm1000.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pf
 b><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (6 pages, 299177 bytes).
+Output written on main.pdf (6 pages, 509042 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 124 words of extra memory for PDF output out of 10000 (max. 10000000)
 
