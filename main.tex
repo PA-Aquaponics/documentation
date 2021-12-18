@@ -144,50 +144,105 @@
 	\pagenumbering{arabic}
 	\fussy
 	
-	\section{Recherche}
+
+		
+	\section{Einleitung}
 	
-	\subsection{Sensordaten}
-	Die Sensoren der Systeme sind an SC1000 Geräten angeschlossen. Ein serieller Bus verknüpft alle SC1000 mit einem RasPi welches über eine Modbus-API die Sensordaten auf eine MySQL Datenbank ablegt. Die Daten werden auf der Webseite dargestellt.
+	\subsection{Ausgangslage}
+	Ein Aquaponics Projekt besteht bereits aus folgenden Komponenten. Sensoren der Aquaponics Systeme, welche an SC1000 Geräten angeschlossen sind. 
+	Ein serieller Bus verknüpft alle SC1000 mit einem RasPi welches über eine Modbus-API die Sensordaten auf eine MySQL Datenbank ablegt. Diese Daten werden auf der Webseite dargestellt.
 	
-	\subsection{Host}
-	Die myaquaculturefarm.ch Webseite wird auf hosttech.ch gehostet. Hosttech verwendet als Backend PHP.
+
+	Die Webseite, welche unter myaquaculturefarm.ch zu finden ist, wird auf hosttech.ch gehostet. Hosttech verwendet als Backend Technologie PHP.
 	Unsere Konfigurationsseite wird ebenfalls auf dieser Domain parallel zu den anderen Webseiten von ZHAW Life Sciences und Facility Management gehostet.
 	
-	\subsection{Backend Technologie}
 	Beim Backend sind wir gebunden was die Host-Firma uns zur Verfügung stellt, in diesem Falle wäre das PHP.
 	
-	\section{Analyse}
-	
-	\subsection{Problem}
+	\subsection{Aufgabenstellung}
 	Die Datenbank, in der die Sensordaten geloggt werden, besteht aus zwei Tabellen. In einer der Tabellen werden die Sensoren eingetragen, die sich in den Systemen befinden und in der zweiten Tabelle werden die Sensordaten abgespeichert und mit dem jeweiligen Sensor verknüpft.
 	
-	Das Bearbeiten dieser Zuordnungstabelle ist für die Mitarbeiter/Studierende der ZHAW Life Sciences und Facility Management mit dem von Hosttecht gegebenen Tool «phpMyAdmin» nicht verständlich. Zusätzlich müssen spezifische Werte eingegeben werden die einen Informatik Laien nicht bekannt sind, welches zu inkorrekte Angabe von Daten führen kann, welches wiederum zu einem Durcheinander in der Log-Tabelle führt. Das «phpMyAdmin» Tool ist ebenfalls nur per Verwaltungsseite der Hosttech Domain erreichbar welches eine zusätzliche Hürde darstellt.
+	Das Bearbeiten dieser Zuordnungstabelle ist für die Mitarbeiter/Studierende der ZHAW Life Sciences und Facility Management mit dem von Hosttech gegebenen Tool «phpMyAdmin» nicht verständlich. Zusätzlich müssen spezifische Werte eingegeben werden die einen Informatik Laien nicht bekannt sind, welches zu inkorrekte Angabe von Daten führen kann, welches wiederum zu einem Durcheinander in der Log-Tabelle führt. 
+	Das «phpMyAdmin» Tool ist ebenfalls nur per Verwaltungsseite der Hosttech Domain erreichbar welches eine zusätzliche Hürde darstellt.
 	
-	\subsection{Lösung}
-	Eine einfachere Variante zur Bearbeitung dieser Zuordnungstabelle erschaffen.
+	\subsection{Zielsetzung}
+	Um die Zuordnuntabelle einfacher zu bearbeiten, soll der Ablauf abgändert werden. Als Lösung stellen wir eine REST Schnittstelle zur Verfügung über welche die Tabelle mit wenigen Handgriffen verändert werden kann. 
+	Diese soll übersichtlich und einfach zu bedienen sein. Damit die Schnittstelle zu jeder Zeit erreichbar ist soll sie gehostet werden.
 	
-	\section{Design}
+	\section{Grundlagen}
 	
 	\subsection{Hosting}
-	Wir sind nicht zufrieden mit Hosttech und möchten gerne ein anderes Backend als PHP einsetzen, daher haben wir uns entschieden die Verwaltungswebseite auf einem anderen Anbieter zu hosten.
+	Wir sind nicht zufrieden mit Hosttech und möchten gerne ein anderes Backend als PHP einsetzen, daher haben wir uns entschieden die Verwaltungswebseite auf einem anderen Anbieter zu hosten. 
+	Hierbei hat unser Betreuer seine Plattform angeboten. Auf dieser können wir ein Image des Dockercontainers hosten lassen. Somit ist dieses zu jederzeit erreichbar. Dies gilt für das Frontend sowie für das Backend.
+	Damit der Server nach der Umsetzung nach wie vor erreichbar ist, wurde uns vom Betreuer folgende Seite vorgeschlagen: https://www.hetzner.com/de/
 	
 	\subsection{Docker}
 	Die Spring-Boot Applikation so wie auch die MySQL Datenbank werden auf Docker virtualisiert. Docker gibt den Vorteil unsere Applikation in einen lauffähigen Container zu packen, der dann mit wenig Aufwand auf den dedizierten Docker Host bereitgestellt werden kann.
 	
 	\subsection{Backend Technologie}
-	Mit dem loslösen von Hosttech sind wir frei die Backend Technologie zu bestimmen und wir haben uns auf Java/Spring geeinigt. Wir haben uns für Spring entschieden, da alle Entwickler mit Java vertraut sind und OpenAPI Spring unterstützt.
+	Mit dem Loslösen von Hosttech sind wir frei die Backend Technologie zu bestimmen und wir haben uns auf Java/Spring geeinigt. Wir haben uns für Spring entschieden, da alle Entwickler mit Java vertraut sind und OpenAPI Spring unterstützt. 
 	
-	\subsection{OpenAPI}
-	Als Schnittstelle zwischen Backend und Frontend wollen wir das State of the Art Tool OpenAPI einsetzen. Nach genaurere Analyse sehen wir einen grossen Nutzen des Tools, da es uns eine grosse Unterstützung zur Entwicklung der REST Schnittstelle sein wird. 
+	\subsection{Schnittstelle}
+	Als Schnittstelle zwischen Backend und Frontend wollen wir das State of the Art Tool OpenAPI einsetzen. Nach genauerer Analyse sehen wir einen grossen Nutzen des Tools, da es uns eine grosse Unterstützung zur Entwicklung der REST Schnittstelle sein wird. 
 	
 	\subsection{Frontend Technologie}
 	Als Frontend-Framework sind wir frei, da es keinen Wunsch/Voraussetzung vom Kunden gab.
 	Wir als Gruppe haben uns für Angular(2+) entschieden, da die Mehrheit der Gruppe sich mit diesem Framework gut auskennt. 
 	
-	\section{Umsetzung}
+	\subsection{Datenbank}
+	Um den alten Stand weiterzuführen, wird weiterhin die mySQL Datenbank benutzt. Diese wird mithilfe der Schnittstelle angepasst.
 	
-	\section{Test}
+	\section{Vorgehen / Methoden}
 	
-	\section{Fazit}
+	\subsection{Swagger}
+	Erste Umsetzungen finden mithilfe eines Swaggerprojekts statt. Hier kann ein Entwurf erstellt werden. Mithilfe dieses Entwurfs wird ein Grundgerüst hergestellt, welcher dazu dient, vereinfacht die REST Schnittstelle zu bauen.
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.4]{Swagger}
+		\caption{Swagger Beispiel}
+		\label{fig:Swagger}
+	\end{figure}
+
+	Die Schnittstelle soll dazu fähig sein Daten der Sensoren zurückzugeben. Die Möglichkeit soll bestehen, dass die Sensorendaten zusätzlich editierbar sind.
+	
+	Als Vereinfachung können die Sensoren auch als eine Liste angezeigt werden.
+	
+	\subsection{Docker}
+	
+	
+	\section{Resultate}
+	\section{Diskussion und Ausblick}
+	
+	\subsection{Sprint 0 Meeting}
+	\begin{itemize}
+		\item Angular Demo von  Herr Bachmann TodoAngular.
+		\begin{itemize}
+			\item In Github Frontend - Package.JSON ist alles vorhanden was zu diesem Thema als Wissen benötigt wird.
+		\end{itemize}
+		\item Hosting kann von Herrn Bachmann übernommen werden.
+		\begin{itemize}
+			\item Hierfür muss entweder ein Dockercontainer für das Frontend und Backend respektive erstellt werden, oder für das Frontend und Backend kombiniert.
+		\end{itemize}
+		\item Cloud Service für VM Möglichkeiten.
+		\begin{itemize}
+			\item Auf der Homepage \url{https://www.hetzner.com} gibt es zahlreiche kosteneffiziente und interessante Angebote für verschiedene Services.
+		\end{itemize}
+		\item Erstellen und diskutieren der Tasks für Sprint 1.
+	\end{itemize}	
+	
+	\subsection{Sprint 1 Meeting}
+	\begin{itemize}
+		\item Durch verschiedene Versionierungen und unterschiedlichen Arbeitsstationen kam es zu einigen Problemen mit Gradle unter anderem auch Dependeciesfehler.
+		\item Unter längerer Diskussion wurde beschlossen dass das Frontend und Backend in einem Dockercontainer kombiniert werden um das hosten und arbeiten zu vereinfachen.
+		\item Eine kurze Dockerpräsentation auf einer virtuellen Ubuntumaschine über den aktuellen Stand wird vorgeführt.
+		\item Angular Frontend steht noch offen und wird als Letztes angegangen.
+		\item Ein weiterer Punkt wäre ein mögliches Treffen mit dem Team aus Wädischwil bezüglich Mockups. Um eine grobe Richtung für ungefähre GUI Vorstellungen zu bekommen oder ob dies komplett nach eigenem Ermessen erstellt werden soll.
+	\section{Verzeichnisse}
+	\subsection{Literaturverzeichnis}
+	\subsection{Glossar}
+	\subsection{Abbildungsverzeichnis}
+	\section{Anhang}
+		
+		
 		
 \end{document}
