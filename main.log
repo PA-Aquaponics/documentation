@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  18 DEC 2021 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  18 DEC 2021 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -975,16 +975,22 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
 25.
  (c:/texlive/2019/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [2 <./images/Swagger.png>] [3] (./main.aux)
+) [2 <./images/Swagger.png>]
+<images/SC1000_Example.jpg, id=52, 881.54344pt x 368.87813pt>
+File: images/SC1000_Example.jpg Graphic file (type jpg)
+<use images/SC1000_Example.jpg>
+Package pdftex.def Info: images/SC1000_Example.jpg  used on input line 249.
+(pdftex.def)             Requested size: 352.61113pt x 147.54863pt.
+ [3 <./images/SC1000_Example.jpg>] [4] (./main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24395 strings out of 480994
- 465806 string characters out of 5916033
- 1121111 words of memory out of 5000000
- 39473 multiletter control sequences out of 15000+600000
+ 24405 strings out of 480994
+ 466021 string characters out of 5916033
+ 1121119 words of memory out of 5000000
+ 39482 multiletter control sequences out of 15000+600000
  539922 words of font info for 35 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  68i,11n,83p,873b,2297s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -996,10 +1002,10 @@ e1/public/cm-super/sfbx1440.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/
 cm-super/sfbx2488.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/s
 frm1000.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pf
 b><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (5 pages, 168346 bytes).
+Output written on main.pdf (6 pages, 299177 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 86 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
