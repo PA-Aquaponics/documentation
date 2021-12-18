@@ -171,15 +171,14 @@
 	\section{Grundlagen}
 	
 	\subsection{Hosting}
-	Wir sind nicht zufrieden mit Hosttech und möchten gerne ein anderes Backend als PHP einsetzen, daher haben wir uns entschieden die Verwaltungswebseite auf einem anderen Anbieter zu hosten. 
-	Hierbei hat unser Betreuer seine Plattform angeboten. Auf dieser können wir ein Image des Dockercontainers hosten lassen. Somit ist dieses zu jederzeit erreichbar. Dies gilt für das Frontend sowie für das Backend.
+	Unser Produkt soll auf dem neusten Stand der Dinge sein und daher verzichten wir auf den Hoster Hosttech der schon für das bestehende System verwendet wird. Ein grosser Nachteil von Hosttech ist das wir auf ein PHP Backend beschränkt sind. Um auch das Deployment zu modernisieren und hauptsächlich zu automatisieren möchten wir mit Dockercontainer arbeiten. Hierbei hat unser Betreuer seine Plattform angeboten. Auf dieser können wir ein Image des Dockercontainers hosten lassen. Somit ist dieses zu jederzeit erreichbar. Dies gilt für das Frontend sowie für das Backend.
 	Damit der Server nach der Umsetzung nach wie vor erreichbar ist, wurde uns vom Betreuer folgende Seite vorgeschlagen: https://www.hetzner.com/de/
 	
 	\subsection{Backend Technologie}
-	Mit dem Loslösen von Hosttech sind wir frei die Backend Technologie zu bestimmen und wir haben uns auf Java/Spring geeinigt. Wir haben uns für Spring entschieden, da alle Entwickler mit Java vertraut sind und OpenAPI Spring unterstützt. 
+	Mit dem Loslösen von Hosttech sind wir frei die Backend Technologie zu bestimmen und wir haben uns auf Java/Spring-Boot geeinigt. Wir haben uns für Spring-Boot entschieden, da alle Entwickler mit Java vertraut sind und OpenAPI Spring-Boot unterstützt. Spring-Boot eignet sich auch gut für unsere Aufgabenstellung, da wir eine Datenbank anschliessen werden und die Daten auf der Webseite nicht nur dargestellt werden sondern auch manipuliert werden können, eignet sich Spring-Boot mit der einfachen Handhabung von JPA gut.
 	
 	\subsection{Schnittstelle}
-	Als Schnittstelle zwischen Backend und Frontend wollen wir das State of the Art Tool OpenAPI einsetzen. Nach genauerer Analyse sehen wir einen grossen Nutzen des Tools, da es uns eine grosse Unterstützung zur Entwicklung der REST Schnittstelle sein wird. 
+	Als Schnittstelle zwischen Backend und Frontend wollen wir das State of the Art Tool OpenAPI einsetzen. Nach genauerer Analyse sehen wir einen grossen Nutzen des Tools, da es uns eine grosse Unterstützung zur Entwicklung der REST Schnittstelle sein wird. In OpenAPI kann in einem YAML File die ganze REST Schnittstelle erstellt und konfiguriert werden daraus kann dann OpenAPI unser Spring-Boot Backend erzeugen was uns viel Arbeit abnimmt.
 	
 	\subsection{Frontend Technologie}
 	Als Frontend-Framework sind wir frei, da es keinen Wunsch/Voraussetzung vom Kunden gab.
@@ -206,6 +205,9 @@
 	Die Schnittstelle soll dazu fähig sein Daten der Sensoren zurückzugeben. Die Möglichkeit soll bestehen, dass die Sensorendaten zusätzlich editierbar sind.
 	
 	Als Vereinfachung können die Sensoren auch als eine Liste angezeigt werden.
+	
+	\subsection{Continuous Integration}
+	Als Source Control wird Git eingesetzt und um mit allen Entwicklern zusammen zu arbeiten befindet sich das Repository auch auf github.com. Github bietet uns mit den Github Actions ein gutes Tool welches wir automatisch das gesamte Spring-Boot Projekt erstellen, testen und auf DockerHub hochladen können. Die Github Actions werden bei jedem Push in den Main Branch angestossen. In den Main Branch wird in der Regel nur dann gepusht wenn ein Feature Branch nach Pull Request und Code Review in den Main gemergerd wird. Daher wird das Github Actions nicht bei jedem Commit ausgeführt und nur funktionierende Versionen werden auf Dockerhub hochgeladen.
 	
 	\subsection{Docker}
 	Docker kann sehr vielfältig eingesetzt werden, aber worin Docker seine stärken hat ist im Deployment. Mit einem gutem Docker-Compose File ist ein komplexes Multi-Container System mit einem Befehl aufgesetzt.
