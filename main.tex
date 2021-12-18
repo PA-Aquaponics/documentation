@@ -187,6 +187,9 @@
 	
 	\subsection{Datenbank}
 	Um den alten Stand weiterzuführen, wird weiterhin die mySQL Datenbank benutzt. Diese wird mithilfe der Schnittstelle angepasst.
+	Die bestehende Datenbank auf Hosttech wird in einen neuen Docker-Container migriert und neben dem Spring-Boot Projekt gehostet. Nur das Spring-Boot Projekt hat direkten Zugriff auf die Datenbank, alle Änderungen müssen über die REST Schnittstelle der Spring-Boot Applikation erfolgen. 
+	
+	Nach Analyse der Datenbank sahen wir ebenfalls Potential für Verbesserungen, doch wollten wir nicht zu viel an der Struktur ändern, da diese Änderungen weitere Anpassungen auf Systemen erfordern, welche wir keinen Einfluss nehmen können, daher haben wir uns entschieden die Datenbank zu belassen und eine 1 zu 1 Kopie zu erstellen.
 	
 	\section{Vorgehen / Methoden}
 	
