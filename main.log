@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.5.23)  18 DEC 2021 15:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.5.23)  18 DEC 2021 16:21
 entering extended mode
 **./main.tex
 (main.tex
@@ -1037,15 +1037,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 <images//Swagger.png, id=20, 529.98pt x 626.34pt>
 File: images//Swagger.png Graphic file (type png)
 <use images//Swagger.png>
-Package pdftex.def Info: images//Swagger.png  used on input line 197.
+Package pdftex.def Info: images//Swagger.png  used on input line 199.
 (pdftex.def)             Requested size: 211.98824pt x 250.53156pt.
  [2 <./images//Swagger.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-24.
+35.
  (F:\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-[3] (main.aux)
+[3] [4] (main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
@@ -1053,7 +1053,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  25147 strings out of 479163
  477901 string characters out of 2870588
- 1213889 words of memory out of 3000000
+ 1214889 words of memory out of 3000000
  42326 multiletter control sequences out of 15000+600000
  411014 words of font info for 38 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -1067,9 +1067,9 @@ pen/ec/dpi600\ecbx1000.pk> <C:\Users\deniz\AppData\Local\MiKTeX\fonts/pk/ljfour
 ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\deniz\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\deniz\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
-Output written on main.pdf (5 pages, 124480 bytes).
+Output written on main.pdf (6 pages, 129496 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
+ 317 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
