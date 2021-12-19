@@ -1,0 +1,32 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+	\section{Einleitung}
+	
+	\subsection{Ausgangslage}
+	Ein Aquaponics Projekt besteht bereits aus folgenden Komponenten. Sensoren der Aquaponics Systeme, welche an SC1000 Geräten angeschlossen sind. 
+	Ein serieller Bus verknüpft alle SC1000 mit einem RasPi welches über eine Modbus-API die Sensordaten auf eine MySQL Datenbank ablegt. Diese Daten werden auf der Webseite dargestellt.
+	
+	
+	Die Webseite, welche unter myaquaculturefarm.ch zu finden ist, wird auf hosttech.ch gehostet. Hosttech verwendet als Backend Technologie PHP.
+	Unsere Konfigurationsseite wird ebenfalls auf dieser Domain parallel zu den anderen Webseiten von ZHAW Life Sciences und Facility Management gehostet.
+	
+	Beim Backend sind wir gebunden was die Host-Firma uns zur Verfügung stellt, in diesem Falle wäre das PHP.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.5]{Modbusentity}
+		\caption{Modbusentity Tabelle}
+		\label{fig:Modbusentity}
+	\end{figure}
+	
+	\subsection{Aufgabenstellung}
+	Die Datenbank, in der die Sensordaten geloggt werden, besteht aus zwei Tabellen. In einer der Tabellen werden die Sensoren eingetragen, die sich in den Systemen befinden und in der zweiten Tabelle werden die Sensordaten abgespeichert und mit dem jeweiligen Sensor verknüpft.
+	
+	Das Bearbeiten dieser Zuordnungstabelle ist für die Mitarbeiter/Studierende der ZHAW Life Sciences und Facility Management mit dem von Hosttech gegebenen Tool «phpMyAdmin» nicht verständlich. Zusätzlich müssen spezifische Werte eingegeben werden die einen Informatik Laien nicht bekannt sind, welches zu inkorrekte Angabe von Daten führen kann, welches wiederum zu einem Durcheinander in der Log-Tabelle führt. 
+	Das «phpMyAdmin» Tool ist ebenfalls nur per Verwaltungsseite der Hosttech Domain erreichbar welches eine zusätzliche Hürde darstellt.
+	
+	\subsection{Zielsetzung}
+	Um die Zuordnuntabelle einfacher zu bearbeiten, soll der Ablauf abgändert werden. Als Lösung stellen wir eine REST Schnittstelle zur Verfügung über welche die Tabelle mit wenigen Handgriffen verändert werden kann. 
+	Diese soll übersichtlich und einfach zu bedienen sein. Damit die Schnittstelle zu jeder Zeit erreichbar ist soll sie gehostet werden.
+\end{document}
