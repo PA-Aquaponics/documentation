@@ -1,8 +1,61 @@
 \documentclass[../main.tex]{subfiles}
+\usepackage{float}
 
 \begin{document}
-		\section{Diskussion und Ausblick}
+	\section{Diskussion und Ausblick}
 	
+	Das Ziel den Alltag für das Aquaponics Team aus Wädischwil zu erleichtern wurde erfüllt.
+	Die Sensorendaten werden von der MySQL Datenbank geholt und für alle Tanks übersichtlich in tabellarischer Form auf einem Dashboard dargestellt. \par \noindent
+	In dem 2. Menüpunkt werden die Logs, welche ebenfalls auf der Datenbank vorzufunden sind, angezeigt. Die Logs zeigen die letzten aktuellen Sensorendaten mit Zeitstempel und Sensorennummer auf. \par \noindent
+	Als letzter Menüpunkt wird noch auf die API Dokumentation verwiesen, welche sich auf die Swagger UI bezieht. Dort sieht man alle Eigenschaften und andere Wissenswerte Details über die Schnittstelle für zukünftige Entwicklungen.\par 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.4]{../images/API_Documentation}
+		\caption{API Dokumentation}
+		\label{fig:API_Documentation}
+	\end{figure}
+	\noindent
+	Wie auf der Abbildung ersichtlich ist, werden verschiedene API Aufrufe über das Aufrufen des Dashboards oder das Klicken auf den Editierbutton in den Sensorendaten gesteuert. 
+	\\
+	Somit wird das Arbeiten mit den Sensorendaten um ein Vielfaches erleichtert.
+	\\
+	Weiterführende Möglichkeiten des Projektes bestehen. Unter anderem stehen Optionen offen, wie alle Logdateien als CSV zu exportieren um diese weiterzuverarbeiten.
+	\\ \\
+	Grössere weiterführende Projekte sind unter anderem ein Erkennungssystem für die Fische und die gesamte Umwelt im Tank. \\
+	Folgende Punkte können zukünftig implementiert werden:
+	\begin{itemize}
+		\item Anzahl und Gewicht der Fische erkennen.
+		\item Durch das Gewicht und die Anzahl die Fütterungsrate festlegen.
+		\item Sauerstoffgehalt des Wassers erkennen und angezeigt werden. Damit man im Notfall jederzeit eingreifen kann.
+		\item Gesundheit der Fische überwachen unter anderem:
+		\begin{itemize}
+			\item Körper und Flossenkonditionen des Fisches durch Kameras überwachen
+			\item Schuppenprobleme, Deformierungen, Kiemenverfärbungen erkennen und frühzeitig warnen
+		\end{itemize}
+	\end{itemize}	
+	Diese Punkte würden Bildbearbeitungsmethoden benötigen, welche diese Punkte erkennen können. Damit Massnahmen in den verschiedenen Fällen getroffen werden können. 
+	\par 
+	\begin{figure}[H]
+		\centering
+		\includegraphics{../images/Imageprocessing}
+		\caption{Bildbearbeitungsmethoden}
+		\label{fig:Imageprocessing}
+	\end{figure}
+	
+	\par \noindent
+	Hiermit werden weitere Möglichkeiten für Überwachungen eröffnet wie z.B:
+	
+	\begin{itemize}
+	 	\item Verhalten 
+	 	\item Sterblichkeit
+	 	\item Platzgebrauch
+	 	\item Gruppierungen
+	 	\item Isolationen
+	 	\item Schwimmgeschwindigkeit
+	 	\item Körpergleichgewicht
+	\end{itemize}
+\noindent
+	Das würde bereits Videobearbeitung erfordern, um das Verhalten auf gewisse Aktionen zu erkennen. 
 	\subsection{Sprint 0 Meeting}
 	\begin{itemize}
 		\item Angular Demo von  Herr Bachmann TodoAngular.
@@ -39,12 +92,11 @@
 			Wie in der Abbildung ersichtlich werden die Tanks einzeln aufgezeigt mit ähnlichen Eigenschaften. 
 			\begin{figure}[h]
 				\centering
-				\includegraphics[scale=0.4]{SC1000_Example}
+				\includegraphics[scale=0.4]{../images/SC1000_Example}
 				\caption{SC1000 Screenshot}
 				\label{fig:SC1000_Example}
 			\end{figure}
-			
-			
+		
 			\item Alle Adressen der Sensoren sollen genauso im SC1000 geregelt werden können.
 		\end{itemize}
 		\item Der erstellte Docker Container mit dem kombinierten Frontend und Backend wird präsentiert und die Benutzung erklärt.
