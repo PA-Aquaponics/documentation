@@ -1,0 +1,86 @@
+% dual entry command stolen from
+% https://en.wikibooks.org/wiki/LaTeX/Glossary#Dual_entries_with_reference_to_a_glossary_entry_from_an_acronym
+%
+% used like:
+% \newdualentry{label} % label
+% {LBL}                % abbreviation
+% {Label}              % long form
+% {What's a label???}  % description
+%
+% Refer to acronym with \gls{OWD} and the glossary with \gls{gls-OWD}
+
+
+\usepackage{xparse}
+
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+	\newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+		description={#6},#1
+	}
+	\makeglossaries
+	\newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+
+
+
+
+% Acronym
+
+\newacronym{acronymexample}
+{AE}
+{\textbf{A}cronym \textbf{E}xample - additional description}
+
+
+
+% ------------------------------------------------
+
+% Acronyms/Glossary mixed
+
+\newdualentry{mvp}
+{MVP}
+{\textbf{M}inimal \textbf{V}iable \textbf{P}roduct}
+{
+	Ein Minimum Viable Product ist das bezogen auf den Umfang kleinstmögliche, auslieferbare und vor allem funktionsfähige Produkt.
+}
+
+% ------------------------------------------------
+
+% Glossary 
+
+
+
+\newglossaryentry{peerreview}
+{
+	name=Peer-Review,
+	description={
+		Peer-Review ist ein Verfahren zur Qualitätssicherung, bei dem ein Erzeugnis durch unabhängige bzw. unbeteiligte Gutachter auf seine ausreichende Qualität überprüft wird.
+	}
+}
+
+
+
+\newglossaryentry{jira}
+{
+	name=JIRA,
+	description={
+		JIRA ist ein Produkt der Firma Atlassian, das Teams in unterschiedlichen Bereichen des Projektmanagements unterstützen soll.
+	}
+}
+
+
+\newglossaryentry{cicd}
+{
+	name=CI/CD,
+	description={
+		CI/CD (Continuous Integration / Continuous Delivery) beschreibt eine Praktik in der Software-Entwicklung, die dafür sorgt, dass die zu entwickelnde Software konstant in ein ausführbares Programm umgewandelt und somit von allen Stakeholdern getestet werden kann.
+	}
+}
+
+\newglossaryentry{versionierung}
+{
+	name=Versionierung,
+	description={
+		Mittels Versionierung wird in der Software-Entwicklung eine reibungslose Kooperation der Entwickler ermöglicht. Ausserdem kann so eine Chronologie aller gemachten Veränderungen eingesehen werden.
+	}
+}
+
+% ------------------------------------------------
