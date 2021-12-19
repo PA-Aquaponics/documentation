@@ -85,20 +85,20 @@
 
 %------------------------------------------------------------
 % Appendices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\makeglossaries
-%%\setacronymstyle{sc-short-long}  
-%\loadglsentries{appendices/glossaries}
-%
-%\addbibresource{appendices/references.bib}
-%
-%% Glossary links repetition %%%%%%%%%%%%%%%%%%%%%%
-%\GlsXtrEnableLinkCounting[section]{general,acronym}
-%% disable hyperlink if link count is greater than 1:
-%\renewcommand*{\glslinkpresetkeys}{%
-%	\ifnum\GlsXtrLinkCounterValue{\glslabel}>1
-%	\setkeys{glslink}{hyper=false}%
-%	\fi
-%}
+\makeglossaries
+%\setacronymstyle{sc-short-long}  
+\loadglsentries{appendices/glossaries}
+
+\addbibresource{appendices/references.bib}
+
+% Glossary links repetition %%%%%%%%%%%%%%%%%%%%%%
+\GlsXtrEnableLinkCounting[section]{general,acronym}
+% disable hyperlink if link count is greater than 1:
+\renewcommand*{\glslinkpresetkeys}{%
+	\ifnum\GlsXtrLinkCounterValue{\glslabel}>1
+	\setkeys{glslink}{hyper=false}%
+	\fi
+}
 
 % Code listing style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{accent_light!80!black}}
@@ -198,21 +198,28 @@
 	
 	\subfile{sections/discussion}
 
+	\section{Beispiele für LateX}
+	% Beispiele für Zitieren/Kurzform
+	\gls{acronymexample} \\
+	\cite{Bibtex2021} Test text
+
 	\section{Verzeichnisse}
 	\subsection{Literaturverzeichnis}
 	\subsection{Glossar}
 	\subsection{Abbildungsverzeichnis}
+	
+	
 	\section{Anhang}
 		
-	%\newpage
+	\newpage
 
-	%\printglossary[type=\acronymtype]
-	%\printglossary
+	\printglossary[type=\acronymtype]
+	\printglossary
 	
-	%\newpage
-	%\printbibliography[heading=bibintoc]
+	\newpage
+	\printbibliography[heading=bibintoc]
 	
-	%\newpage
-	%%\listoftodos[Notes]
+	\newpage
+	%\listoftodos[Notes]
 		
 \end{document}
