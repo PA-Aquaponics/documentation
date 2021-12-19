@@ -19,6 +19,9 @@
 		\caption{Modbusentity Tabelle}
 		\label{fig:Modbusentity}
 	\end{figure}
+
+	\subsection{Gesamtarchitektur}
+	In den Becken befinden sich Sensoren die verschiedene Messungen führen. Alle Sensoren eines Systems hängen an einem SC1000 Gerät. Alle SC1000 Geräte sind mit dem Modbus verbunden. Über diesen Modbus holt sich das ein Raspberry Pi alle Sensordaten von allen Systemen und logt und ladet diese hoch auf eine MySQL Datenbank. Dass das Raspberry Pi auch weiss an welcher Adresse auf dem Mobdus welcher Sensor abgefragt werden kann, werden die Konfigurationen aller Systeme innerhalb der MySQL Datenbank gespeichert.
 	
 	\subsection{Aufgabenstellung}
 	Die Datenbank, in der die Sensordaten geloggt werden, besteht aus zwei Tabellen. In einer der Tabellen werden die Sensoren eingetragen, die sich in den Systemen befinden und in der zweiten Tabelle werden die Sensordaten abgespeichert und mit dem jeweiligen Sensor verknüpft.
