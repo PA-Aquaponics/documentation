@@ -19,6 +19,7 @@
 	
 	\subsection{Continuous Integration}
 	Als Source Control wird Git eingesetzt und um mit allen Entwicklern zusammen zu arbeiten befindet sich das Repository auch auf github.com. Github bietet uns mit den Github Actions ein gutes Tool welches wir automatisch das gesamte Spring-Boot Projekt erstellen, testen und auf DockerHub hochladen können. Die Github Actions werden bei jedem Push in den Main Branch angestossen. In den Main Branch wird in der Regel nur dann gepusht wenn ein Feature Branch nach Pull Request und Code Review in den Main gemergerd wird. Daher wird das Github Actions nicht bei jedem Commit ausgeführt und nur funktionierende Versionen werden auf Dockerhub hochgeladen.
+	
 	\begin{lstlisting}[language=yaml]
 		# This is a basic workflow to help you get started with Actions
 		
@@ -118,4 +119,14 @@
 		      # map port 8080 on host to 8080 on container
 		      - "8080:8080"
 	\end{lstlisting}
+
+	\subsection{Gesamtsystem}
+	Auf dem folgendem Bild ist das gesamte System abgebildet, welches bei Hetzner gehostet wird.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.4]{pa_aquaponics_docker_architecture.drawio}
+		\caption{Gesamtsystem}
+		\label{fig:Gesamtsystem}
+	\end{figure}
+	
 \end{document}
