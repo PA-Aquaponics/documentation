@@ -8,7 +8,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
 \usepackage{subfiles}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{todonotes}
@@ -100,26 +100,40 @@
 	\fi
 }
 
-% Code listing style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{accent_light!80!black}}
-
-\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
-\definecolor{greencomments}{rgb}{0,0.5,0}
-\definecolor{redstrings}{rgb}{0.9,0,0}
-
-\lstset{language=[Sharp]C,
-	showspaces=false,
-	showtabs=false,
-	breaklines=true,
-	showstringspaces=false,
-	breakatwhitespace=true,
-	escapeinside={(*@}{@*)},
-	commentstyle=\color{accent_light},
-	keywordstyle=\color{stress_dark},
-	stringstyle=\color{content_light}
-}
 %------------------------------------------------------------
+\newcommand\YAMLcolonstyle{\color{red}\mdseries}
+\newcommand\YAMLkeystyle{\color{black}\bfseries}
+\newcommand\YAMLvaluestyle{\color{blue}\mdseries}
 
+\makeatletter
+\newcommand\language@yaml{yaml}
+
+\expandafter\expandafter\expandafter\lstdefinelanguage
+\expandafter{\language@yaml}
+{
+	keywords={true,false,null,y,n},
+	keywordstyle=\color{darkgray}\bfseries,
+	basicstyle=\YAMLkeystyle,                                 % assuming a key comes first
+	sensitive=false,
+	comment=[l]{\#},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\YAMLvaluestyle\ttfamily,
+	moredelim=[l][\color{orange}]{\&},
+	moredelim=[l][\color{magenta}]{*},
+	moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},   % switch to value style at :
+	morestring=[b]',
+	morestring=[b]",
+	literate =    {---}{{\ProcessThreeDashes}}3
+	{>}{{\textcolor{red}\textgreater}}1     
+	{|}{{\textcolor{red}\textbar}}1 
+	{\ -\ }{{\mdseries\ -\ }}3,
+}
+
+\lst@AddToHook{EveryLine}{\ifx\lst@language\language@yaml\YAMLkeystyle\fi}
+\makeatother
+
+\newcommand\ProcessThreeDashes{\llap{\color{cyan}\mdseries-{-}-}}
 %------------------------------------------------------------
 % DOCUMENT SPECIFIC
 % Author
@@ -184,10 +198,6 @@
 	\pagenumbering{arabic}
 	\fussy
 	
-		\lstset{style=sharpc}
-	
-
-		
 	\subfile{sections/introduction}
 	
 	\subfile{sections/basics}

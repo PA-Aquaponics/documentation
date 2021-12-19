@@ -28,4 +28,28 @@
 	
 	\subsubsection{Docker-Compose}
 	Das Docker-Compose holt sich die neuste Version der Applikation und erstellt ein Netzwerk für das Gesamte PAAQ-System. Der Applikation wird ein Portforwarding eingerichtet, dass diese auch von Aussen zugänglich ist. Anschliessend wird auch ein MySQL-Container heruntergeladen und in das gleiche Netzwerk eingehängt, dass eine Kommunikation zwischen Spring-Boot Applikation und MySQL-Datenbank statt finden kann. Der MySQL Datenbank wird noch der Dump der alten Datenbank mitgegeben, dass eine exakte Kopie der vorherigen Datenbank erstellt.
+	\begin{lstlisting}[language=yaml]
+		version: "3.3"
+		
+		services:
+		  mysqldb:
+		    image: mysql:latest
+		    container_name: mysqldb_aquaponics
+		    restart: unless-stopped
+		    environment:
+		      - MYSQL_ROOT_PASSWORD=[MYSQL_ROOT_PASSWORD]
+		      - MYSQL_DATABASE=[MYSQL_DATABASE]
+		    ports:
+		      - "3306"
+		    volumes:
+		      - /home/[user]/dump:/docker-entrypoint-initdb.d
+		      
+		  spring_boot:
+		    image: [dockerhub_username]/paaq:latest
+		    container_name: spring_boot_aquaponics
+		    restart: on-failure
+		    ports:
+		      # map port 8080 on host to 8080 on container
+		      - "8080:8080"
+	\end{lstlisting}
 \end{document}
