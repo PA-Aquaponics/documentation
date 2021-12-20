@@ -20,6 +20,7 @@
 \usepackage[acronym]{glossaries-extra}
 \usepackage{float}
 \usepackage{hyperref}
+\usepackage[toc, page]{appendix}
 
 
 % Misc Packages
@@ -226,22 +227,20 @@
 	\subfile{sections/discussion}
 	\pagebreak
 
-	\section{Beispiele für LateX}
-	% Beispiele für Zitieren/Kurzform
-	\gls{acronymexample} \\
-	\cite{Bibtex2021} Test text
-	\pagebreak
-	
+	\begin{appendices}
+		
+%		\section{Beispiele für LateX}
+%		 Beispiele für Zitieren/Kurzform
+%		\gls{acronymexample} \\
+%		\cite{Bibtex2021} Test text
+%		\pagebreak
+		
+		\subfile{sections/installation_guide}
+		\pagebreak
+		
+		\subfile{sections/additions}
+	\end{appendices}
 
-%	\section{Verzeichnisse}
-%	\subsection{Literaturverzeichnis}
-%	\subsection{Glossar}
-%	\subsection{Abbildungsverzeichnis}
-	
-	\subfile{sections/installation_guide}
-	\pagebreak
-
-	\subfile{sections/additions}
 		
 	\newpage
 
