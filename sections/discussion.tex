@@ -3,6 +3,7 @@
 \begin{document}
 	\section{Diskussion und Ausblick}
 
+	\subsection{Bachelorarbeit Möglichkeiten}
 	Weiterführende Möglichkeiten des Projektes bestehen. Unter anderem stehen Optionen offen, wie alle Logdateien als CSV zu exportieren um diese weiterzuverarbeiten.
 	\\ \\
 	Grössere weiterführende Projekte sind unter anderem ein Erkennungssystem für die Fische und die gesamte Umwelt im Tank. \\
@@ -40,5 +41,29 @@
 	\end{itemize}
 \noindent
 	Das würde bereits Videobearbeitung erfordern, um das Verhalten auf gewisse Aktionen zu erkennen. 
+	
+	\subsection{Erfahrungen und Meinungen zu den eingesetzten Tools}
+	In den folgenden Kapiteln werden wir auf die eingesetzten Tools eingehen unsere Erfahrungen teilen und unsere Meinung dazu geben.
+	
+	\subsubsection{Github Actions}
+	Wir hatten zwar schon Vorerfahrung mit Github Actions, doch sind wir immer noch Anfänger. Trotzdem waren wir in der Lage Github Actions in unseren Workflow gut einzubauen. Es ist nicht nur nützlich für das Programm / Produkt sondern auch für unsere Dokumentation die wir in TeX geschrieben haben. Das TeX Dokument wird automatisch beim Push oder Merge in den Master von Github Actions zu einem PDF kompiliert und auf Github in unserem Repository released. Unser Build and Publish Github Actions für die komplette Applikation wird ebenfalls bei einer Veränderung im Main angestossen und diese Github Action geht noch einen Schritt weiter und erstellt ein Docker Image und pushed dieses auf unser Dockerhub Konto. Von dort aus kann es von überall heruntergeladen und in Docker deployed werden.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{github_actions_all_workflows} 
+		\caption{Github Actions}
+		\label{fig:github_actions_all_workflows}
+	\end{figure}
+	
+	\subsubsection{Docker und Docker-Compose}
+	Docker ist alleine schon vielfältig aber mit Docker-Compose war das Deployen von jedem neuen Release ein Kinderspiel. Da wir die Datenbank, PHPMyAdmin und unser Spring Boot Server auf drei Container verteilt haben konnte der Spring Boot Server mit einem Befehl durch einen neuen Release ersetzt werden ohne dass wir die Daten verlieren und beim Fall unseres Hosts war das meist auch nur eine Dauer von maximal einer halben Minute bis der Server wieder erreichbar war.
+	
+	\subsubsection{Swagger}
+	Die mit OpenAPI zu bedienende Swagger Software schreckte uns Anfangs ein wenig zurück. Doch schnell erkannten wir das Potential und die Vielfältigkeit der Software die uns behilflich sein könnte. Mit Online Tools und ebenfalls eine SwaggerHub wird die Arbeit mit Swagger sehr unterstützt. Im Online Tool gibt es eine schöne Vorschau und der YAML Code der geschrieben wird, wird auch in Echtzeit überprüft und man wird auch auf Fehler hingewiesen. Mit dem verbundenem SwaggerHub kann man sich auch von der API von anderen inspirieren lassen.
+	
+	\subsubsection{Spring Boot}
+	
+	\subsubsection{Angular}
+	
+	\subsubsection{Sloppy Zone}
 	
 \end{document}
