@@ -27,6 +27,7 @@
 	\subsubsection{MySQL Datenbank}
 	\par Um über Docker-Container eine MySQL-Datenbank auszuführen, reicht es, das offizielle MySQL-Image zu verwenden. Dieses ist auf DockerHub unter \texttt{mysql} zu finden.
 	\par Damit die anderen Container oder auch zusätzliche Dienste auf diese Datenbank zugreifen können, ist es notwendig, den Docker mit dem Parameter \texttt{MYSQL\_ROOT\_PASSWORD} zu starten. Als Passwort kann eine beliebige Zeichenfolge verwendet werden.
+	\par Allfällige Daten aus früheren Datenbanken können mittels phpMyAdmin einfach in die neue MySQL-Datenbank eingepflegt werden.
 	
 	\subsubsection{phpMyAdmin}
 	\par Ein phpMyAdmin-Container ist für den erfolgreichen Betrieb des Front- und Backends nicht notwendig. Wenn eine phpMyAdmin jedoch gewünscht ist, um tiefgründigere Einblicke in die Datenbank zu erhalten, kann ein solcher Container zusätzlich verwendet werden.
@@ -63,4 +64,68 @@
 	%-------------------------------------------------------------------------------------------
 	
 	\section{Installationsanleitung mit Sloppy.io}
+	Da Sloppy.io das Erstellen und Verbinden von Containern, sowie auch die Verwendung einer neuen URL erheblich erleichtert, eignet es sich gut, um Prototypen zu Demonstrationszwecken zu hosten. Nachfolgend wird das Setup mittels Sloppy.io beschrieben.
+	
+	\subsection{Produktwahl}
+	Für das Hosting der drei Docker-Container reicht der 'Basic' Plan der von Sloppy.io angebotenen Optionen aus. Sollte nach einiger Zeit der Speicher nicht mehr ausreichen oder mehr Rechenleistung nötig sein, können diese separat dazugekauft werden. Zusätzliche Features der Pläne 'Professional' und 'Business', wie beispielsweise 'External Logging' oder 'Custom Invoicing' sind für diesen Anwendungsfall unverhältnismässig. Ein Nachteil ist jedoch, dass Kollaboration mittels mehrerer Accounts erst mit dem teuersten Produkt möglich ist.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{../images/SloppyProductPlans} 
+		\caption{Verschiedene Leistungsangebote von Sloppy.io}
+		\label{fig:SloppyProductPlans}
+	\end{figure}
+
+	\subsection{Projekt erstellen}
+	Sloppy.io ermöglicht es Benutzern, ihre Container bzw. Services in Projekten zu gliedern. Es ist daher zu empfehlen, für die drei Container ein eigenes Projekt anzulegen. Das Projekt sowie auch die Services können mit einem Namen versehen werden, der die Übersicht erleichtert. Pro Service können beliebig viele Container-Apps angegliedert werden. Es ist jedoch empfohlen, nur stark voneinander abhängige Container-Apps im selben Service laufen zu lassen.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{../images/SloppyProjectStructure} 
+		\caption{Strukturierung von Services und Apps in einem Sloppy-Projekt}
+		\label{fig:SloppyProjectStructure}
+	\end{figure}
+	
+	\subsection{MySQL-Datenbank}
+	\par Für die Datenbank reicht es, per Sloppy.io ein neues App für einen entsprechenden Service anzulegen. Anschliessend kann das Docker-Image direkt per Name und optionalem Version-Tag verwendet werden. Folgende Umgebungsvariablen sind notwendig:
+	\begin{itemize}
+		\item \texttt{MYSQL\_ROOT\_PASSWORD}: Ein geeignetes Passwort für den Root-Nutzer der Datenbank.
+	\end{itemize}
+	\par Für einen effizienten Betrieb der Datenbank sollten der Container-App mindestens 512MB Arbeitsspeicher zugeschrieben werden. Im Verlaufe der Entwicklung hat sich ein 1024MB grosser Arbeitsspeicher bewährt.
+	
+	\subsection{phpMyAdmin}
+	\par Ein phpMyAdmin-Container kann analog zum MySQL-Container an einen entsprechenden Service gekettet und per Sloppy.io-Dialog direkt von DockerHub verwendet werden. Da phpMyAdmin von extern zugänglich sein soll, wird die App als öffentlich eingestellt. Als URL kann eine eigene verwendet werden oder man nutzt eine kostenfreie Subdomain von Sloppy.io. 
+	\par Folgende Umgebungsvariablen sind notwendig:
+	\begin{itemize}
+		\item \texttt{PMA\_HOST}: Sloppy ermöglicht es dem Benutzer hier direkt den MySQL-Container anzugeben.
+		\item \texttt{MYSQL\_ROOT\_PASSWORD}: Ein geeignetes Passwort für den Root-Nutzer der Datenbank.
+	\end{itemize}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{../images/SloppyPHPPreferences} 
+		\caption{Einstellungen für den phpMyAdmin Container.}
+		\label{fig:SloppyPHPPreferences}
+	\end{figure}
+	
+	\subsection{Spring Boot Server}
+	\par Ein Docker-Container für den Spring Boot Server sollte ebenfalls in einem eigenen Service laufen. Analog zum phpMyAdmin- und dem MySQL-Container kann als Docker-Image dasjenige Image ausgewählt werden, dass auf DockerHub erstellt wurde. Der Spring Boot Server Container muss ebenfalls öffentlich sein und sollte auf den Port 8080 hören.
+	\par Umgebungsvariablen sind keine nötig, da diese bereits im Container Image gesetzt sind.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.95\textwidth]{../images/SloppySpringServer} 
+		\caption{Der Spring Boot Server hört auf Port 8080.}
+		\label{fig:SloppySpringServer}
+	\end{figure}
+	
+	\subsection{Container Networking}
+	\par Die einzelnen Container können über das interne Netzwerk von Sloppy.io iteinander kommunizieren. Die dazu notwendige interne URL eines Containers kann eingesehen werden und dementsprechend im Code für den Spring Boot Server zur Anbindung der Datenbank hinterlegt werden.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.95\textwidth]{../images/SloppyConnectContainers} 
+		\caption{Sloppy.io Container haben eine Sloppy.io interne Adresse.}
+		\label{fig:SloppyConnectContainers}
+	\end{figure}
+	
 \end{document}
