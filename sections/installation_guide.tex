@@ -1,22 +1,66 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-	\section{Installationsanleitung}
+	\section{Installationsanleitung Allgemein}
 	Durch den verwendeten Technologie-Stack lässt sich die Installation in kleinere Teilgebiete unterteilen. Die Voraussetzungen für eine erfolgreiche Installation sehen wie folgt aus:
 	\begin{itemize}
 		\item Java Version 11 oder höher
 		\item Sofern der Spring-Boot-Server nicht als JAR-Datei vorhanden ist:
-		\subitem Persönlicher GitHub-Account
-		\subitem Gradle Version 7.3.+ oder Entwicklungsumgebung, die fähig ist, mit Gradle-Wrappern umzugehen.
+		\begin{itemize}
+			\item Persönlicher GitHub-Account
+			\item Gradle Version 7.3.+ oder Entwicklungsumgebung, die fähig ist, mit Gradle-Wrappern umzugehen.
+		\end{itemize}
 		\item Hosting-Angebot, das die Verwendung von Docker-Containern erlaubt
 	\end{itemize}
 	
 	\subsection{Docker-Container}
-	Der beabsichtigte Technologie-Stack sieht vor, dass zur erfolgreichen Inbetriebnahme zwei beziehungsweise drei Docker-Container verwendet werden. 
+	Der beabsichtigte Technologie-Stack sieht vor, dass zur erfolgreichen Inbetriebnahme zwei beziehungsweise drei Docker-Container verwendet werden.
+	
+	\subsubsection{Angular Frontend}
+	\par Das Angular basierte Frontend wird durch den Spring Boot Server bereitgestellt. Bei der Erstellung des Servers wird dafür der Angular-Code kompiliert, optimiert und minimiert. Damit das Frontend auf die Korrekten Endpunkte zugreift, kann es nötig sein, die verwendeten Endpunkte anzupassen. Grundsätzlich reicht hierfür eine Anpassung vom \textit{basePath} in der Datei \texttt{environment.prod.ts} und eine weiter Anpassung vom \textit{API\_ENDPOINT} in der Datei \texttt{app-settings.ts}. Beide Dateien befinden sich im Unterordner \textit{paaq-client}.
+	
 	\subsubsection{Spring Boot Server}
+	\par Durch die GitHub-Actions wird gewährleistet, dass auf DockerHub stets die aktuellste Version des Codes als Docker-Image verfügbar ist. Gemäss Grundeinstellungen der Actions ist dieses Image unter \textit{denadex/paaq} zu finden. 
+	\par Die Anbindung an die Datenbank erfolgt über Parameter, die im Code gesetzt werden. Diese sind in der Datei \texttt{application.properties} im Unterordner \textit{paaq-server} aufgeführt.
+	\par Zwischen dem Spring Boot Server und der Datenbank ist eine Verbindung essentiell. Das bedeutet, dass ein Port-Freigabe notwendig sein kann. Für genauere Angaben zum Setup einer Verbindung zwischen zwei Docker-Containern empfiehlt sich daher eine Konsultation des Hosting-Partners oder der Docker-Community.
+	
 	\subsubsection{MySQL Datenbank}
+	\par Um über Docker-Container eine MySQL-Datenbank auszuführen, reicht es, das offizielle MySQL-Image zu verwenden. Dieses ist auf DockerHub unter \texttt{mysql} zu finden.
+	\par Damit die anderen Container oder auch zusätzliche Dienste auf diese Datenbank zugreifen können, ist es notwendig, den Docker mit dem Parameter \texttt{MYSQL\_ROOT\_PASSWORD} zu starten. Als Passwort kann eine beliebige Zeichenfolge verwendet werden.
+	
 	\subsubsection{phpMyAdmin}
+	\par Ein phpMyAdmin-Container ist für den erfolgreichen Betrieb des Front- und Backends nicht notwendig. Wenn eine phpMyAdmin jedoch gewünscht ist, um tiefgründigere Einblicke in die Datenbank zu erhalten, kann ein solcher Container zusätzlich verwendet werden.
+	\par Auch für phpMyAdmin gibt es ein offizielles Docker-Image. Um einen phpMyAdmin-Container mit dem Datenbankcontainer zu verknüpfen müssen die Parameter \texttt{PMA\_HOST} und \texttt{MYSQL\_ROOT\_PASSWORD} gesetzt werden.
+	\par Analog zum Spring Boot Server muss auch hier gewährleistet werden, dass eine Verbindung zwischen den Containern tatsächlich existieren kann.
+	
+	\subsubsection{Container Networking}
+	Der Spring Boot Server ist über Port 8080 erreichbar. Damit man die Webseite also von ausserhalb erreichen kann, müssen HTTP/S Requests an den Container auf Port 8080 weitergeleitet werden.
+	
+	\subsubsection{Externe Hilfestellungen}
+	\begin{itemize}
+		\item Informationen zum MySQL Docker Image: \href{https://hub.docker.com/_/mysql}{Offizielles MySQL Docker Image}
+		\item Informationen zum phpMyAdmin Docker Image: \href{https://hub.docker.com/r/phpmyadmin/phpmyadmin/}{Offizielles phpMyAdmin Docker Image}
+		\item Informationen zu Container Networking: \href{https://docs.docker.com/config/containers/container-networking/}{Docker Dokumentation}
+	\end{itemize}
+	
+	%-------------------------------------------------------------------------------------------
 	
 	\subsection{Eigene Anpassungen}
+	Folgend eine Kurzübersichtig über die nötigen Anpassungen, falls eine eigene individualisierte Lösung in Betracht gezogen wird.
+	\subsubsection{Eigene GitHub-Fork}
+	Das Projekt ist Open-Source und kann somit öffentlich eingesehen werden. Für eigene Änderungen kann das GitHub-Repository mittels 'forking' geklont werden. In der geklonten Fork kann man wie bei GitHub üblich seine eigenen Änderungen einpflegen.
+	\subsubsection{Eigenes Docker Image}
+	\par Für ein eigenes Docker-Image ist ein Benutzerkonto bei DockerHub notwendig. Anschliessend muss ein neues Repository bei DockerHub erzeugt werden. Damit der Code der eigenen GitHub-Fork auf dieses Docker-Repository gelangt, muss in den GitHub-Actions die neue URL für das DockerHub-Repository hinterlegt werden. Anzupassen sind:
+	\begin{itemize}
+		\item In \texttt{.github/workflows/build\_and\_publish.yml}: In der Rubrik 'Build and Publish' kann das Tag zu einem anderen Namen als 'paaq' abgeändert werden.
+		\item In den Einstellungen des GitHub-Repositorys müssen zwei Secrets hinterlegt sein:
+		\begin{itemize}
+			\item \texttt{DOCKER\_HUB\_USERNAME}: Der Benutzername des DockerHub-Benutzerkontos.
+			\item \texttt{DOCKER\_HUB\_ACCESS\_TOKEN}: Ein Access-Token für das DockerHub-Benutzerkontos.
+		\end{itemize}
+	\end{itemize}
 	
+	%-------------------------------------------------------------------------------------------
+	
+	\section{Installationsanleitung mit Sloppy.io}
 \end{document}
