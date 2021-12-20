@@ -60,12 +60,18 @@
 	
 	\subsubsection{Docker und Docker-Compose}
 	Docker ist alleine schon vielfältig aber mit Docker-Compose war das Deployen von jedem neuen Release ein Kinderspiel. Da wir die Datenbank, PHPMyAdmin und unser Spring Boot Server auf drei Container verteilt haben konnte der Spring Boot Server mit einem Befehl durch einen neuen Release ersetzt werden ohne dass wir die Daten verlieren und beim Fall unseres Hosts war das meist auch nur eine Dauer von maximal einer halben Minute bis der Server wieder erreichbar war.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{docker} 
+		\caption{Docker mit laufenden Containern}
+		\label{fig:docker}
+	\end{figure}
 	
 	\subsubsection{Swagger}
 	Die mit OpenAPI zu bedienende Swagger Software schreckte uns Anfangs ein wenig zurück. Doch schnell erkannten wir das Potential und die Vielfältigkeit der Software die uns behilflich sein könnte. Mit Online Tools und ebenfalls eine SwaggerHub wird die Arbeit mit Swagger sehr unterstützt. Im Online Tool gibt es eine schöne Vorschau und der YAML Code der geschrieben wird, wird auch in Echtzeit überprüft und man wird auch auf Fehler hingewiesen. Mit dem verbundenem SwaggerHub kann man sich auch von der API von anderen inspirieren lassen.
 		\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.2]{swaggerhub} 
+		\includegraphics[scale=0.25]{swaggerhub} 
 		\caption{SwaggerHub}
 		\label{fig:swaggerhub}
 	\end{figure}
