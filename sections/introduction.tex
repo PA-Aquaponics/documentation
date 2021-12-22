@@ -13,16 +13,16 @@
 		\label{fig:Aquaponics_Tank}
 	\end{figure}
 	\par \noindent
-	Unsere Aufgabe ist die Überwachung der Sensoren in den Systemen zu vereinfachen. \\
+	Unsere Aufgabe ist die Überwachung der \gls{sensor} in den Systemen zu vereinfachen. \\
 	
 	\section{Einleitung}
 	
 	\subsection{Ausgangslage}
-	Ein Aquaponics Projekt besteht bereits aus folgenden Komponenten. Sensoren der Aquaponics Systeme, welche an SC1000 Geräten angeschlossen sind. \\
-	Ein serieller Bus verknüpft alle SC1000 mit einem RasPi welches über eine Modbus-API die Sensordaten auf eine MySQL Datenbank ablegt. Diese Daten werden auf der Webseite dargestellt. \\
-	Die Webseite, welche unter myaquaculturefarm.ch zu finden ist, wird auf hosttech.ch gehostet. Hosttech verwendet als Backend Technologie PHP.\\
-	Unsere Konfigurationsseite wird ebenfalls auf dieser Domain parallel zu den anderen Webseiten von ZHAW Life Sciences und Facility Management gehostet. \\
-	Beim Backend sind wir gebunden was die Host-Firma uns zur Verfügung stellt, in diesem Falle wäre das PHP.
+	Ein Aquaponics Projekt besteht bereits aus folgenden Komponenten. \gls{sensor} der Aquaponics Systeme, welche an \gls{sc1000} Geräten angeschlossen sind. \\
+	Ein serieller Bus verknüpft alle \gls{sc1000} mit einem RasPi welches über eine Modbus-API die Sensordaten auf eine \gls{mysql} Datenbank ablegt. Diese Daten werden auf der Webseite dargestellt. \\
+	Die Webseite, welche unter myaquaculturefarm.ch zu finden ist, wird auf hosttech.ch gehostet. \gls{hosttech} verwendet als Backend Technologie \gls{php}.\\
+	Unsere Konfigurationsseite wird ebenfalls auf dieser \gls{domain} parallel zu den anderen Webseiten von ZHAW Life Sciences und Facility Management gehostet. \\
+	Beim Backend sind wir gebunden was die Host-Firma uns zur Verfügung stellt, in diesem Falle wäre das \gls{php}.
 	
 	\begin{figure}[H]
 		\centering
@@ -44,7 +44,7 @@
 	Um die Übersicht über die einzelnen Tanks zu wahren gibt es hier die Kolonnen Tank und Systeme, welche anzeigen woher die einzelnen Sensorendaten stammen.
 	
 	\subsection{Gesamtarchitektur}
-	In den Becken befinden sich Sensoren die verschiedene Messungen führen. Alle Sensoren eines Systems hängen an einem SC1000 Gerät. Alle SC1000 Geräte sind mit dem Modbus verbunden. Über diesen Modbus holt sich das ein Raspberry Pi alle Sensordaten von allen Systemen und logt und ladet diese hoch auf eine MySQL Datenbank. Dass das Raspberry Pi auch weiss an welcher Adresse auf dem Mobdus welcher Sensor abgefragt werden kann, werden die Konfigurationen aller Systeme innerhalb der MySQL Datenbank gespeichert.
+	In den Becken befinden sich \gls{sensor} die verschiedene Messungen führen. Alle \gls{sensor} eines Systems hängen an einem \gls{sc1000} Gerät. Alle \gls{sc1000} Geräte sind mit dem Modbus verbunden. Über diesen Modbus holt sich das ein \gls{raspberrypi} alle Sensordaten von allen Systemen und logt und ladet diese hoch auf eine \gls{mysql} Datenbank. Dass das \gls{raspberrypi}i auch weiss an welcher Adresse auf dem Mobdus welcher \gls{sensor} abgefragt werden kann, werden die Konfigurationen aller Systeme innerhalb der \gls{mysql} Datenbank gespeichert.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{pa_altes_system}
@@ -53,12 +53,12 @@
 	\end{figure}
 	
 	\subsection{Aufgabenstellung}
-	Die Datenbank, in der die Sensordaten geloggt werden, besteht aus zwei Tabellen. In einer der Tabellen werden die Sensoren eingetragen, die sich in den Systemen befinden und in der zweiten Tabelle werden die Sensordaten abgespeichert und mit dem jeweiligen Sensor verknüpft. \\
+	Die Datenbank, in der die Sensordaten geloggt werden, besteht aus zwei Tabellen. In einer der Tabellen werden die \gls{sensor} eingetragen, die sich in den Systemen befinden und in der zweiten Tabelle werden die Sensordaten abgespeichert und mit dem jeweiligen \gls{sensor} verknüpft. \\
 	\\	
-	Das Bearbeiten dieser Zuordnungstabelle ist für die Mitarbeiter/Studierende der ZHAW Life Sciences und Facility Management mit dem von Hosttech gegebenen Tool «phpMyAdmin» nicht verständlich. Zusätzlich müssen spezifische Werte eingegeben werden die einen Informatik Laien nicht bekannt sind, welches zu inkorrekte Angabe von Daten führen kann, welches wiederum zu einem Durcheinander in der Log-Tabelle führt. 
-	Das «phpMyAdmin» Tool ist ebenfalls nur per Verwaltungsseite der Hosttech Domain erreichbar welches eine zusätzliche Hürde darstellt.
+	Das Bearbeiten dieser Zuordnungstabelle ist für die Mitarbeiter/Studierende der ZHAW Life Sciences und Facility Management mit dem von \gls{hosttech} gegebenen Tool \gls{phpmyadmin} nicht verständlich. Zusätzlich müssen spezifische Werte eingegeben werden die einen Informatik Laien nicht bekannt sind, welches zu inkorrekte Angabe von Daten führen kann, welches wiederum zu einem Durcheinander in der \gls{logtabelle} führt. 
+	Das \gls{phpmyadmin} Tool ist ebenfalls nur per Verwaltungsseite der \gls{hosttech} \gls{domain} erreichbar welches eine zusätzliche Hürde darstellt.
 	
 	\subsection{Zielsetzung}
-	Um die Zuordnuntabelle einfacher zu bearbeiten, soll der Ablauf abgändert werden. Als Lösung stellen wir eine REST Schnittstelle zur Verfügung über welche die Tabelle mit wenigen Handgriffen verändert werden kann. 
+	Um die \gls{zuordnungstabelle} einfacher zu bearbeiten, soll der Ablauf abgeändert werden. Als Lösung stellen wir eine \gls{rest} Schnittstelle zur Verfügung über welche die Tabelle mit wenigen Handgriffen verändert werden kann. 
 	Diese soll übersichtlich und einfach zu bedienen sein. Damit die Schnittstelle zu jeder Zeit erreichbar ist soll sie gehostet werden.
 \end{document}
