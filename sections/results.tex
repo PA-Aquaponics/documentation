@@ -55,8 +55,8 @@
 	
 	Als Datenbank-Schema haben wir das Schema der bisher vom Team der ZHAW Wädenswil gebrauchten Datenbank verwendet. Dies hauptsächlich deswegen, weil der Wunsch geäussert wurde, die alten Daten beizubehalten und auch den neuen Einarbeitungsaufwand klein zu halten.
 	
-	\subsubsection{Docker Image}
-	
+	\subsubsection{Docker}
+	Die zwei erwähnten Systeme laufen in drei \gls{docker} \gls{container}n da \gls{mysql} und \gls{phpmyadmin} in einzelnen \gls{container}n laufen. Alle drei \gls{container} sind in einem Containernetzwerk miteinander verbunden und können untereinander kommunizieren ohne dass der Verkehr nach aussen gelangt. Nur der \gls{springboot} \gls{container} und der \gls{phpmyadmin} \gls{container} ist von aussen erreichbar, da im Containernetzwerk ein \gls{portforwarding} für diese zwei \gls{container} eingerichtet wurden.
 	
 	\subsection{OpenAPI Generator und Swagger}
 	
