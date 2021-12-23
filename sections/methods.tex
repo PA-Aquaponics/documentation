@@ -14,9 +14,9 @@
 	\end{figure}
 	\par
 	\noindent
-	Die Schnittstelle soll dazu fähig sein Daten der \gls{sensor} zurückzugeben. Die Möglichkeit soll bestehen, dass die Sensorendaten zusätzlich editierbar sind.\\
+	Die Schnittstelle soll dazu fähig sein Daten der \gls{sensor}en zurückzugeben. Die Möglichkeit soll bestehen, dass die Sensorendaten zusätzlich editierbar sind.\\
 	\\
-	Als Vereinfachung können die \gls{sensor} auch als eine Liste angezeigt werden.
+	Als Vereinfachung können die \gls{sensor}en auch als eine Liste angezeigt werden.
 	
 	\subsection{Continuous Integration}
 	Als Source Control wird \gls{git} eingesetzt und um mit allen Entwicklern zusammen zu arbeiten befindet sich das Repository auch auf github.com. \gls{github} bietet uns mit den \gls{githubactions} ein gutes Tool welches wir automatisch das gesamte \gls{springboot} Projekt erstellen, testen und auf \gls{dockerhub} hochladen können. Die \gls{githubactions} werden bei jedem \gls{push} in den \gls{mainbranch} angestossen. In den \gls{mainbranch} wird in der Regel nur dann gepusht wenn ein Feature \gls{branch} nach \gls{pullrequest} und Code Review in den Main gemergerd wird. Daher wird das \gls{githubactions} nicht bei jedem \gls{commit} ausgeführt und nur funktionierende Versionen werden auf \gls{dockerhub} hochgeladen.

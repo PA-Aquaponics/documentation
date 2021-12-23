@@ -6,10 +6,10 @@
 	\section{Einleitung}
 	
 	\subsection{Ausgangslage}
-	Ein Aquaponics Projekt besteht bereits aus folgenden Komponenten. \gls{sensor} der Aquaponics Systeme, welche an \gls{sc1000} Geräten angeschlossen sind. \\
-	Ein serieller Bus verknüpft alle \gls{sc1000} mit einem RasPi welches über eine Modbus-API die Sensordaten auf eine \gls{mysql} Datenbank ablegt. Diese Daten werden auf der Webseite dargestellt. \\
+	Ein Aquaponik Projekt besteht bereits aus folgenden Komponenten. \gls{sensor} der Aquaponik Systeme, welche an \gls{sc1000} Geräten angeschlossen sind. \\
+	Ein serieller Bus verknüpft alle \gls{sc1000} mit einem \gls{raspberrypi} welches über eine Modbus-API die Sensordaten auf eine \gls{mysql} Datenbank ablegt. Diese Daten werden auf der Webseite dargestellt. \\
 	Die Webseite, welche unter myaquaculturefarm.ch zu finden ist, wird auf hosttech.ch gehostet. \gls{hosttech} verwendet als Backend Technologie \gls{php}.\\
-	Unsere Konfigurationsseite wird ebenfalls auf dieser \gls{domain} parallel zu den anderen Webseiten von ZHAW Life Sciences und Facility Management gehostet. \\
+	Unsere Konfigurationsseite sollte ebenfalls auf dieser \gls{domain} parallel zu den anderen Webseiten von ZHAW Life Sciences und Facility Management gehostet werden. \\
 	Beim Backend sind wir gebunden was die Host-Firma uns zur Verfügung stellt, in diesem Falle wäre das \gls{php}.
 	
 	\begin{figure}[H]
@@ -32,7 +32,7 @@
 	Um die Übersicht über die einzelnen Tanks zu wahren gibt es hier die Kolonnen Tank und Systeme, welche anzeigen woher die einzelnen Sensorendaten stammen.
 	
 	\subsection{Gesamtarchitektur}
-	In den Becken befinden sich \gls{sensor} die verschiedene Messungen führen. Alle \gls{sensor} eines Systems hängen an einem \gls{sc1000} Gerät. Alle \gls{sc1000} Geräte sind mit dem Modbus verbunden. Über diesen Modbus holt sich das ein \gls{raspberrypi} alle Sensordaten von allen Systemen und logt und ladet diese hoch auf eine \gls{mysql} Datenbank. Dass das \gls{raspberrypi}i auch weiss an welcher Adresse auf dem Mobdus welcher \gls{sensor} abgefragt werden kann, werden die Konfigurationen aller Systeme innerhalb der \gls{mysql} Datenbank gespeichert.
+	In den Becken befinden sich \gls{sensor} die verschiedene Messungen führen. Alle \gls{sensor} eines Systems hängen an einem \gls{sc1000} Gerät. Alle \gls{sc1000} Geräte sind mit dem Modbus verbunden. Über diesen Modbus holt sich ein \gls{raspberrypi} alle Sensordaten von allen Systemen, logt und ladet diese hoch auf eine \gls{mysql} Datenbank. Dass das \gls{raspberrypi}i auch weiss an welcher Adresse auf dem Mobdus welcher \gls{sensor} abgefragt werden kann, werden die Konfigurationen aller Systeme, wie im vorherigen Abschnitt beschrieben, innerhalb der \gls{mysql} Datenbank gespeichert.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{pa_altes_system}
