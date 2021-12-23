@@ -7,27 +7,31 @@
 	
 	Als Frontend haben wir 3 Menüpunkte ausgewählt, welche die Hauptfaktoren unserer Schnittstelle aufzeigen. \\
 	Der erste Punkt ist die Übersicht. Hier werden die aktuellen Systeme mit Tanks und die Hauptsensorendaten aufgeführt. \\
-	Für alle Sensorendaten gibt es einen Editierbutton, mit welchem die Daten geändert werden können.\\
-	Unterhalb jedes Systems gibt es die Details Option. Über diesen gelangt man zu den detaillierten Infos jedes Tanks des oben genannten Systems in der unteren Abbildung \gls{angular} Frontend. \\ \\
-	Das tabellarische Layout ist an das Design des \gls{sc1000} angelehnt, damit mit einer gewohnten Umgebung weitergearbeitet werden kann. 
+	Unterhalb jedes Systems gibt es die Details Option. Über diesen gelangt man zu den detaillierten Infos jedes Tanks des oben genannten Systems in der unteren Abbildung \gls{angular} Frontend. 
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.4]{Frontend_Dashboard}
 		\caption{Übersicht}
 		\label{fig:Frontend_Dashboard}
 	\end{figure}
-	\par
-	\noindent
-	Der zweite Punkt ist Logs. Hier sind alle Daten über einen älteren Zeitraum archiviert worden. Die Daten sind wichtig um zu vergleichen, wie sich Veränderungen über eine längere Zeit gebildet haben. Die Logdaten sind eins zu eins aus der Datenbank geladen und werden dort immer aktualisiert. Hier sind auch Sensorennummer und Zeitstempel enthalten damit keine Verwirrung auftritt.
-	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.4]{Frontend_Logs}
+		\includegraphics[scale=0.4]{Frontend_Details}
 		\caption{Logs}
-		\label{fig:Frontend_Logs}
+		\label{fig:Frontend_Details}
+	\end{figure}	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{Frontend_newSystem}
+		\caption{Logs}
+		\label{fig:Frontend_newSystem}
 	\end{figure}
 	\par
-	\noindent
+	\noindent	
+	Das tabellarische Layout ist an das Design des \gls{sc1000} angelehnt, damit mit einer gewohnten Umgebung weitergearbeitet werden kann. 
+	\\ \\
+	Der zweite Punkt ist Logs. Hier sind alle Daten über einen älteren Zeitraum archiviert worden. Die Daten sind wichtig um zu vergleichen, wie sich Veränderungen über eine längere Zeit gebildet haben. Die Logdaten sind eins zu eins aus der Datenbank geladen und werden dort immer aktualisiert. Hier sind auch Sensorennummer und Zeitstempel enthalten damit keine Verwirrung auftritt.
+	\\ \\
 	Als letzter Menüpunkt wird noch auf die \gls{api} Dokumentation verwiesen, welche sich auf die Swagger UI bezieht. Dort sieht man alle Eigenschaften und andere Wissenswerte Details über die Schnittstelle für zukünftige Entwicklungen.\par 
 	\begin{figure}[H]
 		\centering
