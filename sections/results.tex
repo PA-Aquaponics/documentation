@@ -48,16 +48,24 @@
 	\subsubsection{Spring Boot Server}
 	Spring Boot ermöglichte uns einen schnellen Start, indem es viele der \gls{boilerplate} lastigen Themen übernimmt und direkt zur Verfügung stellt. Die Anbindung der Datenbank, das Handhaben von Websockets und die Abhandlung von klassischen Fehlerquellen wie nicht gefundenen Resourcen seitens des Servers wurden somit direkt von Spring Boot gehandhabt. Somit konnten wir uns auf die Themen fokussieren, die unseren Server von anderen Servern unterscheiden wird, sprich wie er die Schnittstelle zur Verfügung stellen wird.
 	
-	Basierend auf der \gls{interfacefirst} Herangehensweise, konnten wir per OpenAPI-Generator einen Teil des Servers automatisch generieren. Datenodelle, API und Controller liessen sich in einer ersten Form auf diese Weise rasch erzeugen. Die Verbindung der generierten Komponenten zur Datenbank wurde von uns manuell programmiert.
+	\noindent Basierend auf der \gls{interfacefirst} Herangehensweise, konnten wir per OpenAPI-Generator einen Teil des Servers automatisch generieren. Datenodelle, API und Controller liessen sich in einer ersten Form auf diese Weise rasch erzeugen. Die Verbindung der generierten Komponenten zur Datenbank wurde von uns manuell programmiert.
+	
+	\noindent Mittels Gradle werden durch Build-Scripts zuerst unser Frontend zu einem auslieferbaren Paket gebaut und anschliessend der Server-Code zusammen mit dem Angular-Paket in ein ausführbares JAR-File umgewandelt.
 	
 	\subsubsection{Datenbank}
 	Als Datenbank verwenden wir eine MySQL-Datenbank, die mithilfe eines offiziellen MySQL Docker Image in einem Container läuft. Zusätzlich zum Datenbank-Container ist auch noch ein \gls{phpmyadmin} Container in Betrieb, der es dem Team der ZHAW Wädenswil ermöglicht, die Daten wie zuvor zu begutachten oder zu editieren.
 	
-	Als Datenbank-Schema haben wir das Schema der bisher vom Team der ZHAW Wädenswil gebrauchten Datenbank verwendet. Dies hauptsächlich deswegen, weil der Wunsch geäussert wurde, die alten Daten beizubehalten und auch den neuen Einarbeitungsaufwand klein zu halten.
+	\noindent Als Datenbank-Schema haben wir das Schema der bisher vom Team der ZHAW Wädenswil gebrauchten Datenbank verwendet. Dies hauptsächlich deswegen, weil der Wunsch geäussert wurde, die alten Daten beizubehalten und auch den neuen Einarbeitungsaufwand klein zu halten.
 	
 	\subsubsection{Docker Image}
 	
 	
 	\subsection{OpenAPI Generator und Swagger}
+	Der \gls{interfacefirst}-Ansatz ermöglicht die Verwendung von einem OpenAPI-Generator. Mittlerweile gibt es diesen Generator in einer Open-Source Form und in der proprietären Version von Swagger, der ursprünglichen Entwicklerfirma. Wir haben uns für die Verwendung des Open-Source Generators entschieden.
+	
+	\noindent Mit dem Generator lassen sich eine Vielzahl von verschiedenen Fundamenten für Backends oder Frontends in unterschiedlichsten Programmiersprachen oder Frameworks erzeugen.
+	
+	\subsubsection{Swagger UI}
+	Da Swagger ein prominenter Vorreiter der OpenAPI-Sphäre ist, unterstützt der generierte Spring Boot Server auch einige der verschiedenen Swagger-Funktionen. So kann unsere API ganz einfach eingesehen und direkt getestet werden.
 	
 \end{document}
