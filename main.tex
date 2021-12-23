@@ -13,7 +13,7 @@
 \usepackage{pdfpages}
 \usepackage{todonotes}
 \usepackage{listings}
-\usepackage[backend=bibtex, style=ieee, citestyle=ieee]{biblatex}
+\usepackage[dashed=false, backend=bibtex, style=ieee, citestyle=ieee]{biblatex}
 \usepackage{csquotes}
 \usepackage{subfiles}
 \usepackage[nopostdot, acronym, toc]{glossaries}
@@ -224,13 +224,13 @@
 	% ------------------------
 	
 	\subfile{sections/introduction}
-	
+	\pagebreak
 	\subfile{sections/basics}
-	
+	\pagebreak
 	\subfile{sections/methods}
-	
+	\pagebreak
 	\subfile{sections/results}
-	
+	\pagebreak
 	\subfile{sections/discussion}
 	\pagebreak
 
@@ -258,7 +258,6 @@
 	\newpage
 	\printbibliography[heading=bibintoc]
 	
-	\newpage
 	%\listoftodos[Notes]
 		
 \end{document}
