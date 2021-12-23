@@ -39,4 +39,25 @@
 	Wie auf der Abbildung ersichtlich ist, werden verschiedene \gls{api} Aufrufe über das Aufrufen des Dashboards oder das Klicken auf den Editierbutton in den Sensorendaten gesteuert. 
 	\\
 	Somit wird das Arbeiten mit den Sensorendaten um ein Vielfaches erleichtert.
+	
+	%------------------------------------------------------------------
+	
+	\subsection{Backend}
+	Unser Backend besteht aus einem Spring Boot Server und einer MySQL-Datenbank. Zudem besteht ist es Möglich, den Spring Boot Server in einem Docker Image zu verwenden.
+	
+	\subsubsection{Spring Boot Server}
+	Spring Boot ermöglichte uns einen schnellen Start, indem es viele der \gls{boilerplate} lastigen Themen übernimmt und direkt zur Verfügung stellt. Die Anbindung der Datenbank, das Handhaben von Websockets und die Abhandlung von klassischen Fehlerquellen wie nicht gefundenen Resourcen seitens des Servers wurden somit direkt von Spring Boot gehandhabt. Somit konnten wir uns auf die Themen fokussieren, die unseren Server von anderen Servern unterscheiden wird, sprich wie er die Schnittstelle zur Verfügung stellen wird.
+	
+	Basierend auf der \gls{interfacefirst} Herangehensweise, konnten wir per OpenAPI-Generator einen Teil des Servers automatisch generieren. Datenodelle, API und Controller liessen sich in einer ersten Form auf diese Weise rasch erzeugen. Die Verbindung der generierten Komponenten zur Datenbank wurde von uns manuell programmiert.
+	
+	\subsubsection{Datenbank}
+	Als Datenbank verwenden wir eine MySQL-Datenbank, die mithilfe eines offiziellen MySQL Docker Image in einem Container läuft. Zusätzlich zum Datenbank-Container ist auch noch ein \gls{phpmyadmin} Container in Betrieb, der es dem Team der ZHAW Wädenswil ermöglicht, die Daten wie zuvor zu begutachten oder zu editieren.
+	
+	Als Datenbank-Schema haben wir das Schema der bisher vom Team der ZHAW Wädenswil gebrauchten Datenbank verwendet. Dies hauptsächlich deswegen, weil der Wunsch geäussert wurde, die alten Daten beizubehalten und auch den neuen Einarbeitungsaufwand klein zu halten.
+	
+	\subsubsection{Docker Image}
+	
+	
+	\subsection{OpenAPI Generator und Swagger}
+	
 \end{document}
