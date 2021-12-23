@@ -35,12 +35,47 @@
 
 % Acronyms/Glossary mixed
 
-\newdualentry{mvp}
-{MVP}
-{\textbf{M}inimal \textbf{V}iable \textbf{P}roduct}
-{
-	Ein Minimum Viable Product ist das bezogen auf den Umfang kleinstmögliche, auslieferbare und vor allem funktionsfähige Produkt.
-}
+\newdualentry{cicd}
+	{CI/CD}
+	{\textbf{C}ontinuous \textbf{I}ntegration / \textbf{C}ontinuous \textbf{D}elivery}
+	{
+		CI/CD (Continuous Integration / Continuous Delivery) beschreibt eine Praktik in der Software-Entwicklung, die dafür sorgt, dass die zu entwickelnde Software konstant in ein ausführbares Programm umgewandelt und somit von allen Stakeholdern getestet werden kann.
+	}
+
+\newdualentry{php}
+	{PHP}
+	{\textbf{P}ersonal Home Page \textbf{H}ypertext \textbf{P}reprocessor}
+	{
+		Eine Skript-Sprache die für die Verwendung in der Webentwicklung entwickelt wurde. Wird meistens als Web-Server verwendet.
+	}
+
+\newdualentry{api}
+	{API}
+	{\textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface}
+	{
+		Eine Programmschnittstelle welche anderen Programmen eine Anbindung bietet.
+	}
+
+\newdualentry{rest}
+	{REST}
+	{\textbf{R}epresentational \textbf{S}tate \textbf{T}ransfer}
+	{
+		REST ist eine Softwarearchitektursstil welche über HTTP und HTTPS kommuniziert. Mit REST können API einheitlich und einfach angesteuert werden um Daten zwischen zwei Systemen auszutauschen.
+	}
+
+\newdualentry{jpa}
+	{JPA}
+	{\textbf{J}ava \textbf{P}ersistence \textbf{\gls{api}}}
+	{
+		Java Persistence API ist eine Schnittstelle in Java für die Zuordnung und Übertragung von Objekten zu Datenbankeinträgen vereinfacht.
+	}
+
+\newdualentry{paaq}
+	{PAAQ}
+	{\textbf{P}rojektarbeit \textbf{A}quaponik}
+	{
+		Der Projektname den wir unserer Projektarbeit gegeben haben.
+	}
 
 % ------------------------------------------------
 
@@ -63,22 +98,19 @@
 	}
 }
 
-
+\newglossaryentry{mysql}
+{
+	name=MySQL,
+	description={
+		Eine weit verbreitete Open-Source Datenbank von Oracle.
+	}
+}
 
 \newglossaryentry{jira}
 {
 	name=JIRA,
 	description={
 		JIRA ist ein Produkt der Firma Atlassian, das Teams in unterschiedlichen Bereichen des Projektmanagements unterstützen soll.
-	}
-}
-
-
-\newglossaryentry{cicd}
-{
-	name=CI/CD,
-	description={
-		CI/CD (Continuous Integration / Continuous Delivery) beschreibt eine Praktik in der Software-Entwicklung, die dafür sorgt, dass die zu entwickelnde Software konstant in ein ausführbares Programm umgewandelt und somit von allen Stakeholdern getestet werden kann.
 	}
 }
 
@@ -114,27 +146,11 @@
 	}
 }
 
-\newglossaryentry{mysql}
-{
-	name=MySQL,
-	description={
-		Eine weit verbreitete Open-Source Datenbank von Oracle.
-	}
-}
-
 \newglossaryentry{hosttech}
 {
 	name=Hosttech,
 	description={
 		Eine schweizer Webhosting-Firma.
-	}
-}
-
-\newglossaryentry{php}
-{
-	name=PHP,
-	description={
-		Eine Skript-Sprache die für die Verwendung in der Webentwicklung entwickelt wurde. Wird meistens als Web-Server verwendet.
 	}
 }
 
@@ -175,22 +191,6 @@
 	name=Domain,
 	description={
 		Eine Domain ist ein eindeutiger Name einer Internetadresse. Die Domains werden von einem Domain Name System in eine Internetadresse umgewandelt. Eine Domain ist für einen Menschen einfacher zu merken als eine Zahlenfolge.
-	}
-}
-
-\newglossaryentry{rest}
-{
-	name=REST,
-	description={
-		REST ist eine Softwarearchitektursstil welche über HTTP und HTTPS kommuniziert. Mit REST können API einheitlich und einfach angesteuert werden um Daten zwischen zwei Systemen auszutauschen.
-	}
-}
-
-\newglossaryentry{api}
-{
-	name=API,
-	description={
-		Eine Programmschnittstelle welche anderen Programmen eine Anbindung bietet.
 	}
 }
 
@@ -239,14 +239,6 @@
 	name=OpenAPI,
 	description={
 		Open API ist ein Standard zur Beschreibung von \gls{rest} \gls{api}.
-	}
-}
-
-\newglossaryentry{jpa}
-{
-	name=JPA,
-	description={
-		Java Persistence API ist eine Schnittstelle in Java für die Zuordnung und Übertragung von Objekten zu Datenbankeinträgen vereinfacht.
 	}
 }
 
@@ -349,14 +341,6 @@
 \newglossaryentry{dockercompose}
 {
 	name=Docker Compose,
-	description={
-		Wird benutzt um ein Docker-Compose \gls{yaml} File ausführen zu können. Docker-Compose steuert dann \gls{docker} an.
-	}
-}
-
-\newglossaryentry{paaq}
-{
-	name=PAAQ,
 	description={
 		Wird benutzt um ein Docker-Compose \gls{yaml} File ausführen zu können. Docker-Compose steuert dann \gls{docker} an.
 	}
