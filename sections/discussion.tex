@@ -6,45 +6,8 @@
 	\par
 	\noindent
 
-	\subsection{Bachelorarbeit Möglichkeiten}
-	Weiterführende Möglichkeiten des Projektes bestehen. Unter anderem stehen Optionen offen, wie alle Logdateien als CSV zu exportieren um diese weiterzuverarbeiten.
-	\\ \\
-	Grössere weiterführende Projekte sind unter anderem ein Erkennungssystem für die Fische und die gesamte Umwelt im Tank. \\
-	Folgende Punkte können zukünftig implementiert werden:
-	\begin{itemize}
-		\item Anzahl und Gewicht der Fische erkennen.
-		\item Durch das Gewicht und die Anzahl die Fütterungsrate festlegen.
-		\item Sauerstoffgehalt des Wassers erkennen und angezeigt werden. Damit man im Notfall jederzeit eingreifen kann.
-		\item Gesundheit der Fische überwachen unter anderem:
-		\begin{itemize}
-			\item Körper und Flossenkonditionen des Fisches durch Kameras überwachen
-			\item Schuppenprobleme, Deformierungen, Kiemenverfärbungen erkennen und frühzeitig warnen
-		\end{itemize}
-	\end{itemize}	
-	Diese Punkte würden Bildbearbeitungsmethoden benötigen, welche diese Punkte erkennen können. Damit Massnahmen in den verschiedenen Fällen getroffen werden können. 
-	\par 
-	\begin{figure}[H]
-		\centering
-		\includegraphics{../images/Imageprocessing} 
-		\caption{Bildbearbeitungsmethoden}
-		\label{fig:Imageprocessing}
-	\end{figure}
-	
-	\par \noindent
-	Hiermit werden weitere Möglichkeiten für Überwachungen eröffnet wie z.B:
-	
-	\begin{itemize}
-	 	\item Verhalten 
-	 	\item Sterblichkeit
-	 	\item Platzgebrauch
-	 	\item Gruppierungen
-	 	\item Isolationen
-	 	\item Schwimmgeschwindigkeit
-	 	\item Körpergleichgewicht
-	\end{itemize}
-	\noindent
-	Das würde bereits Videobearbeitung erfordern, um das Verhalten auf gewisse Aktionen zu erkennen. 
-
+	\subsection{Datenbank}
+	Die in \gls{mysql} erstellte Datenbank hat wie in der Einleitung und in den Grundlagen erwähnt keine Beziehungen zwischen den Tabellen. Dies ist sehr suboptimal und hätte ebenfalls von uns überarbeitet werden können, jedoch haben wir uns dagegen entschieden, da weitere Änderungen vorgenommen werden müssen, hauptsächlich auf dem \gls{raspberrypi} welches ausserhalb unseres Fokus dieser Projektarbeit liegt. Doch muss noch dazu erwähnt werden, dass durch nicht Anpassen der Datenbank auf unserer Seite mehr Logik und Arbeit eingebaut werden musste. Durch genauere Analyse ist uns aufgefallen dass die Logeinträge nicht mit den Sensoreinträgen verbunden sind, weil der vorherige Entwickler nicht wollte, dass bei Löschung der \gls{sensor} auch die Logdaten verloren gingen. Dies wäre möglich sauberer in der Datenbank zu lösen, indem man ein zusätzliches Feld bei den Sensordaten hinzufügt um Sensoren als aktiviert oder deaktiviert zu markieren. Jedoch haben wir uns aus den schon erwähnten Gründen gegen die Änderung der Datenbankstruktur gewählt.
 	
 	\subsection{Erfahrungen und Meinungen zu den eingesetzten Tools}
 	In den folgenden Kapiteln werden wir auf die eingesetzten Tools eingehen unsere Erfahrungen teilen und unsere Meinung dazu geben.
@@ -81,5 +44,44 @@
 	\subsubsection{Angular}
 	
 	\subsubsection{Sloppy Zone}
+	
+	\subsection{Bachelorarbeit Möglichkeiten}
+	Weiterführende Möglichkeiten des Projektes bestehen. Unter anderem stehen Optionen offen, wie alle Logdateien als CSV zu exportieren um diese weiterzuverarbeiten.
+	\\ \\
+	Grössere weiterführende Projekte sind unter anderem ein Erkennungssystem für die Fische und die gesamte Umwelt im Tank. \\
+	Folgende Punkte können zukünftig implementiert werden:
+	\begin{itemize}
+		\item Anzahl und Gewicht der Fische erkennen.
+		\item Durch das Gewicht und die Anzahl die Fütterungsrate festlegen.
+		\item Sauerstoffgehalt des Wassers erkennen und angezeigt werden. Damit man im Notfall jederzeit eingreifen kann.
+		\item Gesundheit der Fische überwachen unter anderem:
+		\begin{itemize}
+			\item Körper und Flossenkonditionen des Fisches durch Kameras überwachen
+			\item Schuppenprobleme, Deformierungen, Kiemenverfärbungen erkennen und frühzeitig warnen
+		\end{itemize}
+	\end{itemize}	
+	Diese Punkte würden Bildbearbeitungsmethoden benötigen, welche diese Punkte erkennen können. Damit Massnahmen in den verschiedenen Fällen getroffen werden können. 
+	\par 
+	\begin{figure}[H]
+		\centering
+		\includegraphics{../images/Imageprocessing} 
+		\caption{Bildbearbeitungsmethoden}
+		\label{fig:Imageprocessing}
+	\end{figure}
+	
+	\par \noindent
+	Hiermit werden weitere Möglichkeiten für Überwachungen eröffnet wie z.B:
+	
+	\begin{itemize}
+		\item Verhalten 
+		\item Sterblichkeit
+		\item Platzgebrauch
+		\item Gruppierungen
+		\item Isolationen
+		\item Schwimmgeschwindigkeit
+		\item Körpergleichgewicht
+	\end{itemize}
+	\noindent
+	Das würde bereits Videobearbeitung erfordern, um das Verhalten auf gewisse Aktionen zu erkennen. 
 	
 \end{document}
