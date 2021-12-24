@@ -4,7 +4,7 @@
 	\section{Vorgehen / Methoden}
 	
 	\subsection{Swagger}
-	Erste Umsetzungen finden mithilfe eines Swaggerprojekts statt. Hier kann ein Entwurf erstellt werden. Mithilfe dieses Entwurfs wird ein Grundgerüst hergestellt, welcher dazu dient, vereinfacht die \gls{rest} Schnittstelle zu bauen.
+	Erste Umsetzungen finden mithilfe eines Swaggerprojekts statt. Hier kann ein Entwurf erstellt werden. Mit diesem Entwurf wird ein Grundgerüst hergestellt, welcher dazu dient, vereinfacht die \gls{rest} Schnittstelle zu bauen.
 	
 	\begin{figure}[H]
 		\centering
@@ -19,7 +19,7 @@
 	Als Vereinfachung können die \gls{sensor}en auch als eine Liste angezeigt werden.
 	
 	\subsection{Continuous Integration}
-	Als Source Control wird \gls{git} eingesetzt und um mit allen Entwicklern zusammen zu arbeiten befindet sich das Repository auch auf github.com. \gls{github} bietet uns mit den \gls{githubactions} ein gutes Tool welches wir automatisch das gesamte \gls{springboot} Projekt erstellen, testen und auf \gls{dockerhub} hochladen können. Die \gls{githubactions} werden bei jedem \gls{push} in den \gls{mainbranch} angestossen. In den \gls{mainbranch} wird in der Regel nur dann gepusht wenn ein Feature \gls{branch} nach \gls{pullrequest} und Code Review in den Main gemergerd wird. Daher wird das \gls{githubactions} nicht bei jedem \gls{commit} ausgeführt und nur funktionierende Versionen werden auf \gls{dockerhub} hochgeladen.
+	Als Source Control wird \gls{git} eingesetzt und um mit allen Entwicklern zusammen zu arbeiten befindet sich das Repository auch auf "github.com". \gls{github} bietet uns mit den \gls{githubactions} ein gutes Tool, welches verwendet werden kann um automatisch das gesamte \gls{springboot} Projekt zu erstellen, zu testen und auf \gls{dockerhub} hochzuladen. Die \gls{githubactions} werden bei jedem \gls{push} in den \gls{mainbranch} angestossen. In den \gls{mainbranch} wird in der Regel nur dann gepusht wenn ein Feature \gls{branch} nach \gls{pullrequest} und Code Review in den Main gemergerd wird. Daher wird das \gls{githubactions} nicht bei jedem \gls{commit} ausgeführt und nur funktionierende Versionen werden auf \gls{dockerhub} hochgeladen.
 	
 	\begin{lstlisting}[language=yaml]
 		# This is a basic workflow to help you get started with Actions
@@ -89,13 +89,13 @@
 	\end{lstlisting}
 	
 	\subsection{Docker}
-	\gls{docker} kann sehr vielfältig eingesetzt werden, aber worin \gls{docker} seine stärken hat ist im Deployment. Mit einem gutem \gls{dockercompose} File ist ein komplexes Multi-Container System mit einem Befehl aufgesetzt.
+	\gls{docker} kann sehr vielfältig eingesetzt werden, aber worin \gls{docker} seine Stärken hat ist im Deployment. Mit einem gutem \gls{dockercompose} File ist ein komplexes Multi-Container System mit einem Befehl aufgesetzt.
 	
 	\subsubsection{Docker-Image}
-	Von unserer \gls{springboot} Applikation erstellen wir ein Image welches auf \gls{dockerhub} hochgeladen wird. Von der Datenbank erstellen wir kein Image da \gls{dockerhub} wie \gls{github} öffentlich zugänglich ist und wir die Datenbank nicht veröffentlichen wollen. Die Datenbank wird dann beim erstellen des \gls{mysql} \gls{container} eingelesen wie im nächsten Abschnitt erklärt.
+	Von unserer \gls{springboot} Applikation aus erstellen wir ein Image, welches auf \gls{dockerhub} hochgeladen wird. Von der Datenbank erstellen wir kein Image, da \gls{dockerhub} wie \gls{github} öffentlich zugänglich ist und wir die Datenbank nicht veröffentlichen wollen. Die Datenbank wird danach beim Erstellen des \gls{mysql} \gls{container} eingelesen wie im nächsten Abschnitt erklärt.
 	
 	\subsubsection{Docker-Compose}
-	Das \gls{dockercompose} holt sich die neuste Version der Applikation und erstellt ein Netzwerk für das Gesamte PAAQ-System. Der Applikation wird ein \gls{portforwarding} eingerichtet, dass diese auch von Aussen zugänglich ist. Anschliessend wird auch ein \gls{mysql} \gls{container} heruntergeladen und in das gleiche Netzwerk eingehängt, dass eine Kommunikation zwischen \gls{springboot} Applikation und \gls{mysql} Datenbank statt finden kann. Der \gls{mysql} Datenbank wird noch der \gls{dump} der alten Datenbank mitgegeben, dass eine exakte Kopie der vorherigen Datenbank erstellt.
+	Das \gls{dockercompose} holt sich die neuste Version der Applikation und erstellt ein Netzwerk für das Gesamte PAAQ-System. Der Applikation wird ein \gls{portforwarding} eingerichtet, dass diese auch von ausserhalb zugänglich ist. Anschliessend wird auch ein \gls{mysql} \gls{container} heruntergeladen und in das gleiche Netzwerk eingehängt um zu gewährleisten, dass eine Kommunikation zwischen \gls{springboot} Applikation und \gls{mysql} Datenbank statt finden kann. Der \gls{mysql} Datenbank wird noch der \gls{dump} der alten Datenbank mitgegeben, sodass eine exakte Kopie der vorherigen Datenbank erstellt wird.
 	\begin{lstlisting}[language=yaml]
 		version: "3.3"
 		
