@@ -6,11 +6,11 @@
 	\section{Einleitung}
 	
 	\subsection{Ausgangslage}
-	Ein Aquaponik Projekt besteht bereits aus folgenden Komponenten. \gls{sensor} der Aquaponik Systeme, welche an \gls{sc1000} Geräten angeschlossen sind. \\
-	Ein serieller Bus verknüpft alle \gls{sc1000} mit einem \gls{raspberrypi} welches über eine Modbus-API die Sensordaten auf eine \gls{mysql} Datenbank ablegt. Diese Daten werden auf der Webseite dargestellt. \\
-	Die Webseite, welche unter myaquaculturefarm.ch zu finden ist, wird auf hosttech.ch gehostet. \gls{hosttech} verwendet als Backend Technologie \gls{php}.\\
+	Ein Aquaponik Projekt besteht bereits aus folgenden Komponenten. Aus \gls{sensor}en der Aquaponik Systeme, welche an \gls{sc1000} Geräten angeschlossen sind. \\
+	Zusätzlich verknüpft ein serieller Bus alle \gls{sc1000} Geräte mit einem \gls{raspberrypi}, welches über eine Modbus-API die Sensordaten auf eine \gls{mysql} Datenbank ablegt. Diese Daten werden auf der Webseite dargestellt. \\
+	Die Webseite, welche unter "myaquaculturefarm.ch" zu finden ist, wird zurzeit auf "hosttech.ch" gehostet. \gls{hosttech} verwendet als Backend Technologie \gls{php}.\\
 	Unsere Konfigurationsseite sollte ebenfalls auf dieser \gls{domain} parallel zu den anderen Webseiten von ZHAW Life Sciences und Facility Management gehostet werden. \\
-	Beim Backend sind wir gebunden was die Host-Firma uns zur Verfügung stellt, in diesem Falle wäre das \gls{php}.
+	Beim Backend sind wir gebunden an was die Host-Firma uns zur Verfügung stellt, in diesem Falle wäre das \gls{php}.
 	
 	\begin{figure}[H]
 		\centering
@@ -19,8 +19,8 @@
 		\label{fig:Modbusentity}
 	\end{figure}
 	\par \noindent
-	Wie in der oberen Abbildung zu sehen ist werden die gesamten Sensorendaten in diese Tabelle eingespeist. Dadurch, dass es kein Interface gibt müssen die Daten jedesmal manuell in die Tabelle eingetragen werden. Falls es neue Tanks gibt benötigen sie eine neue Erkennungsnummer.  \\
-	In der folgenden Abbildung werden die Daten geloggt um ein Archivierung älterer Daten zu ermöglichen.
+	Wie in der oberen Abbildung zu sehen ist, werden die gesamten Sensorendaten in diese Tabelle eingespeist. Dadurch, dass es kein Interface gibt müssen die Daten jedesmal manuell in die Tabelle eingetragen werden. Falls neue Tanks hinzugefügt werden müssen, benötigen sie eine neue Erkennungsnummer.  \\
+	In der folgenden Abbildung werden die Daten geloggt um eine Archivierung älterer Daten zu ermöglichen.
 	
 	\begin{figure}[H]
 		\centering
@@ -29,10 +29,10 @@
 		\label{fig:Modbuslog}
 	\end{figure}
 	\par \noindent	
-	Um die Übersicht über die einzelnen Tanks zu wahren gibt es hier die Kolonnen Tank und Systeme, welche anzeigen woher die einzelnen Sensorendaten stammen.
+	Um die Übersicht über die einzelnen Tanks zu gewährleisten, gibt es hier die Kolonnen Tank und Systeme, welche anzeigen woher die einzelnen Sensorendaten stammen.
 	
 	\subsection{Gesamtarchitektur}
-	In den Becken befinden sich \gls{sensor} die verschiedene Messungen führen. Alle \gls{sensor} eines Systems hängen an einem \gls{sc1000} Gerät. Alle \gls{sc1000} Geräte sind mit dem Modbus verbunden. Über diesen Modbus holt sich ein \gls{raspberrypi} alle Sensordaten von allen Systemen, logt und ladet diese hoch auf eine \gls{mysql} Datenbank. Dass das \gls{raspberrypi}i auch weiss an welcher Adresse auf dem Mobdus welcher \gls{sensor} abgefragt werden kann, werden die Konfigurationen aller Systeme, wie im vorherigen Abschnitt beschrieben, innerhalb der \gls{mysql} Datenbank gespeichert.
+	In den Becken befinden sich \gls{sensor} die verschiedene Messungen führen. Wie bereits in der Augangslage beschrieben hängen alle \gls{sensor}en eines Systems an einem \gls{sc1000} Gerät. Alle \gls{sc1000} Geräte sind wiederum mit dem Modbus verbunden. Über diesen Modbus holt sich ein \gls{raspberrypi} alle Sensordaten von allen Systemen, logt und ladet diese hoch auf eine \gls{mysql} Datenbank. Damit das \gls{raspberrypi} auch bestimmen kann an welcher Adresse auf dem Modbus welcher \gls{sensor} abgefragt werden kann, werden die Konfigurationen aller Systeme, wie im vorherigen Abschnitt beschrieben, innerhalb der \gls{mysql} Datenbank gespeichert.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{pa_altes_system}
@@ -41,10 +41,10 @@
 	\end{figure}
 	
 	\subsection{Aufgabenstellung}
-	Die Datenbank, in der die Sensordaten geloggt werden, besteht aus zwei Tabellen. In einer der Tabellen werden die \gls{sensor} eingetragen, die sich in den Systemen befinden und in der zweiten Tabelle werden die Sensordaten abgespeichert und mit dem jeweiligen \gls{sensor} verknüpft. \\
+	Die Datenbank, in der die Sensordaten geloggt werden, besteht aus zwei Tabellen. In einer der Tabellen werden die \gls{sensor}en eingetragen, welche sich in den Systemen befinden und in der zweiten Tabelle werden die Sensordaten abgespeichert und mit dem jeweiligen \gls{sensor} verknüpft. \\
 	\\	
-	Das Bearbeiten dieser Zuordnungstabelle ist für die Mitarbeiter/Studierende der ZHAW Life Sciences und Facility Management mit dem von \gls{hosttech} gegebenen Tool \gls{phpmyadmin} nicht verständlich. Zusätzlich müssen spezifische Werte eingegeben werden die einen Informatik Laien nicht bekannt sind, welches zu inkorrekte Angabe von Daten führen kann, welches wiederum zu einem Durcheinander in der \gls{logtabelle} führt. 
-	Das \gls{phpmyadmin} Tool ist ebenfalls nur per Verwaltungsseite der \gls{hosttech} \gls{domain} erreichbar welches eine zusätzliche Hürde darstellt.
+	Das Bearbeiten dieser Zuordnungstabelle ist für die Mitarbeiter/Studierenden der ZHAW Life Sciences und Facility Management mit dem von \gls{hosttech} gegebenen Tool \gls{phpmyadmin} nicht verständlich. Zusätzlich müssen spezifische Werte eingegeben werden die einem Informatiklaien nicht bekannt sind, welches zu inkorrekter Angabe von Daten führen kann. Dies wiederum führt zu einem Durcheinander in der \gls{logtabelle}. 
+	Das \gls{phpmyadmin} Tool ist ebenfalls nur per Verwaltungsseite der \gls{hosttech} \gls{domain} erreichbar, welches eine zusätzliche Hürde darstellt.
 	
 	\subsection{Zielsetzung}
 	Um die \gls{zuordnungstabelle} einfacher zu bearbeiten, soll der Ablauf abgeändert werden. Als Lösung stellen wir eine \gls{rest} Schnittstelle zur Verfügung über welche die Tabelle mit wenigen Handgriffen verändert werden kann. 
