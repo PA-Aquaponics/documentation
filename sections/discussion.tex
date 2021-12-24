@@ -7,13 +7,13 @@
 	\noindent
 
 	\subsection{Datenbank}
-	Die in \gls{mysql} erstellte Datenbank hat wie in der Einleitung und in den Grundlagen erwähnt keine Beziehungen zwischen den Tabellen. Dies ist sehr suboptimal und hätte ebenfalls von uns überarbeitet werden können, jedoch haben wir uns dagegen entschieden, da weitere Änderungen vorgenommen werden müssen, hauptsächlich auf dem \gls{raspberrypi} welches ausserhalb unseres Fokus dieser Projektarbeit liegt. Doch muss noch dazu erwähnt werden, dass durch nicht Anpassen der Datenbank auf unserer Seite mehr Logik und Arbeit eingebaut werden musste. Durch genauere Analyse ist uns aufgefallen dass die Logeinträge nicht mit den Sensoreinträgen verbunden sind, weil der vorherige Entwickler nicht wollte, dass bei Löschung der \gls{sensor} auch die Logdaten verloren gingen. Dies wäre möglich sauberer in der Datenbank zu lösen, indem man ein zusätzliches Feld bei den Sensordaten hinzufügt um Sensoren als aktiviert oder deaktiviert zu markieren. Jedoch haben wir uns aus den schon erwähnten Gründen gegen die Änderung der Datenbankstruktur gewählt.
+	Die in \gls{mysql} erstellte Datenbank hat wie in der Einleitung und in den Grundlagen erwähnt keine Beziehungen zwischen den Tabellen. Dies ist sehr suboptimal und hätte ebenfalls von uns überarbeitet werden können, jedoch haben wir uns dagegen entschieden, da weitere Änderungen vorgenommen werden müssen, hauptsächlich auf dem \gls{raspberrypi} welches ausserhalb unseres Fokus dieser Projektarbeit liegt. Doch muss noch dazu erwähnt werden, dass durch nicht Anpassen der Datenbank auf unserer Seite mehr Logik und Arbeit eingebaut werden musste. Durch genauere Analyse ist uns aufgefallen, dass die Logeinträge nicht mit den Sensoreinträgen verbunden sind, weil der vorherige Entwickler nicht wollte, dass bei Löschung der \gls{sensor}en auch die Logdaten verloren gingen. Dies wäre möglich sauberer in der Datenbank zu lösen, indem man ein zusätzliches Feld bei den Sensordaten hinzufügt um Sensoren als aktiviert oder deaktiviert zu markieren. Jedoch haben wir uns aus den schon erwähnten Gründen gegen die Änderung der Datenbankstruktur entschieden.
 	
 	\subsection{Erfahrungen und Meinungen zu den eingesetzten Tools}
 	In den folgenden Kapiteln werden wir auf die eingesetzten Tools eingehen unsere Erfahrungen teilen und unsere Meinung dazu geben.
 	
 	\subsubsection{Github Actions}
-	Wir hatten zwar schon Vorerfahrung mit \gls{githubactions}, doch sind wir immer noch Anfänger. Trotzdem waren wir in der Lage \gls{githubactions} in unseren Workflow gut einzubauen. Es ist nicht nur nützlich für das Programm / Produkt sondern auch für unsere Dokumentation die wir in TeX geschrieben haben. Das TeX Dokument wird automatisch beim \gls{push} oder \gls{merge} in den \gls{mainbranch} von \gls{githubactions} zu einem PDF kompiliert und auf \gls{github} in unserem \gls{repository} released. Unser Build and Publish \gls{githubactions} für die komplette Applikation wird ebenfalls bei einer Veränderung im Main angestossen und diese \gls{githubactions} geht noch einen Schritt weiter und erstellt ein \gls{docker} Image und pushed dieses auf unser \gls{dockerhub} Konto. Von dort aus kann es von überall heruntergeladen und in \gls{docker} deployed werden.
+	Wir hatten zwar schon Vorerfahrung mit \gls{githubactions}, aber simple würde man den Umgang mit \gls{githubactions} nicht bezeichnen. Trotzdem waren wir in der Lage \gls{githubactions} in unseren Workflow einzubauen. Es ist nicht nur nützlich für das Programm sondern auch für unsere Dokumentation die wir in TeX geschrieben haben. Das TeX Dokument wird automatisch beim \gls{push} oder \gls{merge} in den \gls{mainbranch} von \gls{githubactions} zu einem PDF kompiliert und auf \gls{github} in unserem \gls{repository} veröffentlicht. Unser Build and Publish Workflow für die komplette Applikation wird ebenfalls bei einer Veränderung im Main angestossen und diese Github Action geht noch einen Schritt weiter und erstellt ein \gls{docker} Image und pusht dieses auf unser \gls{dockerhub} Konto. Von dort aus kann es von überall heruntergeladen und in \gls{docker} ausgerollt werden.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.5]{github_actions_all_workflows} 
@@ -22,7 +22,7 @@
 	\end{figure}
 	
 	\subsubsection{Docker und Docker-Compose}
-	\gls{docker} ist alleine schon vielfältig aber mit \gls{dockercompose} war das Deployen von jedem neuen Release ein Kinderspiel. Da wir die Datenbank, \gls{phpmyadmin} und unser \gls{springboot} Server auf drei \gls{container} verteilt haben konnte der \gls{springboot}t Server mit einem Befehl durch einen neuen Release ersetzt werden ohne dass wir die Daten verlieren und beim Fall unseres Hosts war das meist auch nur eine Dauer von maximal einer halben Minute bis der Server wieder erreichbar war.
+	\gls{docker} alleine bringt schon eine Vielfalt an Funktionen aber mit \gls{dockercompose} war das Ausrollen von jedem neuen Release ein Kinderspiel. Da wir die Datenbank, \gls{phpmyadmin} und unser \gls{springboot} Server auf drei \gls{container} verteilt haben konnte der \gls{springboot} Server mit einem Befehl durch einen neuen Release ersetzt werden ohne dass wir die Daten verlieren und beim Fall unseres Hosts war das meist auch nur eine Dauer von maximal dreissig Sekunden bis der Server wieder funktionsfähig war.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.4]{docker} 
@@ -31,7 +31,7 @@
 	\end{figure}
 	
 	\subsubsection{Swagger}
-	Die mit \gls{openapi} zu bedienende Swagger Software schreckte uns anfangs ein wenig ab. Doch schnell erkannten wir das Potential und die Vielfältigkeit der Software die uns behilflich sein könnte. Mithilfe von Online-Tools und SwaggerHub wird die Arbeit mit Swagger sehr erleichtert. Im Online-Tool gibt es eine schöne Vorschau und der \gls{yaml} Code der geschrieben wird, wird auch in Echtzeit überprüft und man wird auch auf Fehler hingewiesen. Mit dem verbundenem SwaggerHub kann man sich auch von der \gls{api} von anderen inspirieren lassen.
+	Die mit \gls{openapi} zu bedienende Swagger Software schreckte uns anfangs ein wenig ab. Doch schnell erkannten wir das Potential und die Vielfältigkeit der Software die uns behilflich sein konnte. Mithilfe von Online-Tools und SwaggerHub wird die Arbeit mit Swagger sehr erleichtert. Im Online-Tool gibt es eine schöne Vorschau und der \gls{yaml} Code der geschrieben wird, wird auch in Echtzeit überprüft und man wird auch auf Fehler hingewiesen. Mit dem verbundenem SwaggerHub kann man sich auch von \gls{api}s von anderen inspirieren lassen.
 		\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.25]{swaggerhub} 
@@ -40,7 +40,7 @@
 	\end{figure}
 	
 	\subsubsection{Spring Boot}
-	Die Arbeit mit Spring Boot nimmt einem einiges an \gls{boilerplate} ab. Zwar ist man in ein gewisses Framework gezwängt, was durch die unzähligen, nötigen Annotationen ersichtlich wird, aber innerhalb dieses Frameworks sind die Konfigurationsmöglichkeiten immens. Die Tatsache, dass wir uns mittels OpenAPI-Generator einen Server Stub generieren konnten, war ein zweischneidiges Schwert. Einerseits war der Einstieg noch schneller, andererseits war es für uns, die noch wenige Berührungspunkte mit Spring Boot hatten, etwas schwierig, zu entziffern, welche Code-Stelle wofür zuständig war.
+	Die Arbeit mit Spring Boot nimmt einem einiges an \gls{boilerplate} ab. Zwar ist man in ein gewisses Framework gebunden, was durch die unzähligen, nötigen Annotationen ersichtlich wird, aber innerhalb dieses Frameworks sind die Konfigurationsmöglichkeiten immens. Die Tatsache, dass wir uns mittels OpenAPI-Generator einen Server Stub generieren konnten, war ein zweischneidiges Schwert. Einerseits war der Einstieg noch schneller, andererseits war es für uns, die noch wenige Berührungspunkte mit Spring Boot hatten, etwas schwierig, zu entziffern, welche Code-Stelle wofür zuständig war.
 	
 	\subsubsection{Angular}
 	Angular und vorallem Typescript brachten für uns etwas Sicherheit und Altbekanntes in die Javascript Umgebung. Die Art und Weise, wie Angular-Projekte aufgebaut sind, kam uns auch gelegen, da sie den objektorientierten Designprinzipien, die wir im Laufe des Studiums angwendet haben, um einiges näher kommen, als wir es bisher aus Web bezogenen Projekten kannten.
