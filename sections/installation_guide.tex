@@ -17,22 +17,22 @@
 	Der beabsichtigte Technologie-Stack sieht vor, dass zur erfolgreichen Inbetriebnahme zwei beziehungsweise drei Docker-Container verwendet werden.
 	
 	\subsubsection{Angular Frontend}
-	\par Das Angular basierte Frontend wird durch den \gls{springboot} Server bereitgestellt. Bei der Erstellung des Servers wird dafür der \gls{angular} Code kompiliert, optimiert und minimiert. Damit das Frontend auf die Korrekten Endpunkte zugreift, kann es nötig sein, die verwendeten Endpunkte anzupassen. Grundsätzlich reicht hierfür eine Anpassung vom \textit{basePath} in der Datei \texttt{environment.prod.ts} und eine weiter Anpassung vom \textit{API\_ENDPOINT} in der Datei \texttt{app-settings.ts}. Beide Dateien befinden sich im Unterordner \textit{paaq-client}.
+	\par \noindent Das Angular basierte Frontend wird durch den \gls{springboot} Server bereitgestellt. Bei der Erstellung des Servers wird dafür der \gls{angular} Code kompiliert, optimiert und minimiert. Damit das Frontend auf die Korrekten Endpunkte zugreift, kann es nötig sein, die verwendeten Endpunkte anzupassen. Grundsätzlich reicht hierfür eine Anpassung vom \textit{basePath} in der Datei \texttt{environment.prod.ts} und eine weiter Anpassung vom \textit{API\_ENDPOINT} in der Datei \texttt{app-settings.ts}. Beide Dateien befinden sich im Unterordner \textit{paaq-client}.
 	
 	\subsubsection{Spring Boot Server}
-	\par Durch die \gls{githubactions} wird gewährleistet, dass auf \gls{dockerhub} stets die aktuellste Version des Codes als \gls{docker} Image verfügbar ist. Gemäss Grundeinstellungen der Actions ist dieses Image unter \textit{denadex/paaq} zu finden. 
-	\par Die Anbindung an die Datenbank erfolgt über Parameter, die im Code gesetzt werden. Diese sind in der Datei \texttt{application.properties} im Unterordner \textit{paaq-server} aufgeführt.
-	\par Zwischen dem \gls{springboot} Server und der Datenbank ist eine Verbindung essentiell. Das bedeutet, dass ein Port-Freigabe notwendig sein kann. Für genauere Angaben zum Setup einer Verbindung zwischen zwei \gls{docker} \gls{container} empfiehlt sich daher eine Konsultation des Hosting-Partners oder der \gls{docker} Community.
+	\par \noindent Durch die \gls{githubactions} wird gewährleistet, dass auf \gls{dockerhub} stets die aktuellste Version des Codes als \gls{docker} Image verfügbar ist. Gemäss Grundeinstellungen der Actions ist dieses Image unter \textit{denadex/paaq} zu finden. 
+	\par \noindent Die Anbindung an die Datenbank erfolgt über Parameter, die im Code gesetzt werden. Diese sind in der Datei \texttt{application.properties} im Unterordner \textit{paaq-server} aufgeführt.
+	\par \noindent Zwischen dem \gls{springboot} Server und der Datenbank ist eine Verbindung essentiell. Das bedeutet, dass ein Port-Freigabe notwendig sein kann. Für genauere Angaben zum Setup einer Verbindung zwischen zwei \gls{docker} \gls{container} empfiehlt sich daher eine Konsultation des Hosting-Partners oder der \gls{docker} Community.
 	
 	\subsubsection{MySQL Datenbank}
-	\par Um über \gls{docker} \gls{container}  eine \gls{mysql} Datenbank auszuführen, reicht es, das offizielle \gls{mysql} Image zu verwenden. Dieses ist auf \gls{dockerhub} unter \texttt{mysql} zu finden.
-	\par Damit die anderen \gls{container} oder auch zusätzliche Dienste auf diese Datenbank zugreifen können, ist es notwendig, den \gls{docker} mit dem Parameter \texttt{MYSQL\_ROOT\_PASSWORD} zu starten. Als Passwort kann eine beliebige Zeichenfolge verwendet werden.
-	\par Allfällige Daten aus früheren Datenbanken können mittels \gls{phpmyadmin} einfach in die neue \gls{mysql} Datenbank eingepflegt werden.
+	\par \noindent Um über \gls{docker} \gls{container}  eine \gls{mysql} Datenbank auszuführen, reicht es, das offizielle \gls{mysql} Image zu verwenden. Dieses ist auf \gls{dockerhub} unter \texttt{mysql} zu finden.
+	\par \noindent Damit die anderen \gls{container} oder auch zusätzliche Dienste auf diese Datenbank zugreifen können, ist es notwendig, den \gls{docker} mit dem Parameter \texttt{MYSQL\_ROOT\_PASSWORD} zu starten. Als Passwort kann eine beliebige Zeichenfolge verwendet werden.
+	\par \noindent Allfällige Daten aus früheren Datenbanken können mittels \gls{phpmyadmin} einfach in die neue \gls{mysql} Datenbank eingepflegt werden.
 	
 	\subsubsection{phpMyAdmin}
-	\par Ein \gls{phpmyadmin} \gls{container} ist für den erfolgreichen Betrieb des Front- und Backends nicht notwendig. Wenn eine \gls{phpmyadmin} jedoch gewünscht ist, um tiefgründigere Einblicke in die Datenbank zu erhalten, kann ein solcher \gls{container} zusätzlich verwendet werden.
-	\par Auch für \gls{phpmyadmin} gibt es ein offizielles \gls{docker} Image. Um einen \gls{phpmyadmin} \gls{container} mit dem Datenbank \gls{container} zu verknüpfen müssen die Parameter \texttt{PMA\_HOST} und \texttt{MYSQL\_ROOT\_PASSWORD} gesetzt werden.
-	\par Analog zum \gls{springboot} Server muss auch hier gewährleistet werden, dass eine Verbindung zwischen den \gls{container} tatsächlich existieren kann.
+	\par \noindent Ein \gls{phpmyadmin} \gls{container} ist für den erfolgreichen Betrieb des Front- und Backends nicht notwendig. Wenn eine \gls{phpmyadmin} jedoch gewünscht ist, um tiefgründigere Einblicke in die Datenbank zu erhalten, kann ein solcher \gls{container} zusätzlich verwendet werden.
+	\par \noindent Auch für \gls{phpmyadmin} gibt es ein offizielles \gls{docker} Image. Um einen \gls{phpmyadmin} \gls{container} mit dem Datenbank \gls{container} zu verknüpfen müssen die Parameter \texttt{PMA\_HOST} und \texttt{MYSQL\_ROOT\_PASSWORD} gesetzt werden.
+	\par \noindent Analog zum \gls{springboot} Server muss auch hier gewährleistet werden, dass eine Verbindung zwischen den \gls{container} tatsächlich existieren kann.
 	
 	\subsubsection{Container Networking}
 	Der \gls{springboot} Server ist über Port 8080 erreichbar. Damit man die Webseite also von ausserhalb erreichen kann, müssen HTTP/S Requests an den \gls{container} auf Port 8080 weitergeleitet werden.
@@ -91,11 +91,11 @@
 	\begin{itemize}
 		\item \texttt{MYSQL\_ROOT\_PASSWORD}: Ein geeignetes Passwort für den Root-Nutzer der Datenbank.
 	\end{itemize}
-	\par Für einen effizienten Betrieb der Datenbank sollten der \gls{container}-App mindestens 512MB Arbeitsspeicher zugeschrieben werden. Im Verlaufe der Entwicklung hat sich ein 1024MB grosser Arbeitsspeicher bewährt.
+	\par \noindent Für einen effizienten Betrieb der Datenbank sollten der \gls{container}-App mindestens 512MB Arbeitsspeicher zugeschrieben werden. Im Verlaufe der Entwicklung hat sich ein 1024MB grosser Arbeitsspeicher bewährt.
 	
 	\subsection{phpMyAdmin}
 	\par Ein \gls{phpmyadmin}-\gls{container} kann analog zum \gls{mysql}-\gls{container} an einen entsprechenden Service gekettet und per \gls{sloppyio}-Dialog direkt von \gls{dockerhub} verwendet werden. Da \gls{phpmyadmin} von extern zugänglich sein soll, wird die App als öffentlich eingestellt. Als URL kann eine eigene verwendet werden oder man nutzt eine kostenfreie Subdomain von \gls{sloppyio}. 
-	\par Folgende Umgebungsvariablen sind notwendig:
+	\par \noindent Folgende Umgebungsvariablen sind notwendig:
 	\begin{itemize}
 		\item \texttt{PMA\_HOST}: \gls{sloppyio} ermöglicht es dem Benutzer hier direkt den \gls{mysql}-\gls{container} anzugeben.
 		\item \texttt{MYSQL\_ROOT\_PASSWORD}: Ein geeignetes Passwort für den Root-Nutzer der Datenbank.
@@ -110,7 +110,7 @@
 	
 	\subsection{Spring Boot Server}
 	\par Ein \gls{docker}-\gls{container} für den Spring Boot Server sollte ebenfalls in einem eigenen Service laufen. Analog zum \gls{phpmyadmin}- und dem \gls{mysql}-\gls{container} kann als \gls{docker}-Image dasjenige Image ausgewählt werden, dass auf \gls{dockerhub} erstellt wurde. Der \gls{springboot} Server \gls{container} muss ebenfalls öffentlich sein und sollte auf den Port 8080 hören.
-	\par Umgebungsvariablen sind keine nötig, da diese bereits im \gls{container} Image gesetzt sind.
+	\par \noindent Umgebungsvariablen sind keine nötig, da diese bereits im \gls{container} Image gesetzt sind.
 	
 	\begin{figure}[H]
 		\centering
