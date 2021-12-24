@@ -30,8 +30,6 @@
 	\noindent	
 	Das tabellarische Layout ist an das Design des \gls{sc1000} angelehnt, damit mit einer gewohnten Umgebung weitergearbeitet werden kann. 
 	\\ \\
-	Der zweite Punkt ist Logs. Hier sind alle Daten über einen älteren Zeitraum archiviert worden. Die Daten sind wichtig um zu vergleichen, wie sich Veränderungen über eine längere Zeit gebildet haben. Die Logdaten sind eins zu eins aus der Datenbank geladen und werden dort immer aktualisiert. Hier sind auch Sensorennummer und Zeitstempel enthalten damit keine Verwirrung auftritt.
-	\\ \\
 	Als letzter Menüpunkt wird noch auf die \gls{api} Dokumentation verwiesen, welche sich auf die Swagger UI bezieht. Dort sieht man alle Eigenschaften und andere Wissenswerte Details über die Schnittstelle für zukünftige Entwicklungen.\par 
 	\begin{figure}[H]
 		\centering
@@ -52,7 +50,7 @@
 	\subsubsection{Spring Boot Server}
 	Spring Boot ermöglichte uns einen schnellen Start, indem es viele der \gls{boilerplate} lastigen Themen übernimmt und direkt zur Verfügung stellt. Die Anbindung der Datenbank, das Handhaben von Websockets und die Abhandlung von klassischen Fehlerquellen wie nicht gefundenen Resourcen seitens des Servers wurden somit direkt von Spring Boot gehandhabt. Somit konnten wir uns auf die Themen fokussieren, die unseren Server von anderen Servern unterscheiden wird, sprich wie er die Schnittstelle zur Verfügung stellen wird.
 	
-	\noindent Basierend auf der \gls{interfacefirst} Herangehensweise, konnten wir per OpenAPI-Generator einen Teil des Servers automatisch generieren. Datenodelle, API und Controller liessen sich in einer ersten Form auf diese Weise rasch erzeugen. Die Verbindung der generierten Komponenten zur Datenbank wurde von uns manuell programmiert.
+	\noindent Basierend auf der \gls{interfacefirst} Herangehensweise, konnten wir per OpenAPI-Generator einen Teil des Servers automatisch generieren. Datenmodelle, API und Controller liessen sich in einer ersten Form auf diese Weise rasch erzeugen. Die Verbindung der generierten Komponenten zur Datenbank wurde von uns manuell programmiert.
 	
 	\noindent Mittels Gradle werden durch Build-Scripts zuerst unser Frontend zu einem auslieferbaren Paket gebaut und anschliessend der Server-Code zusammen mit dem Angular-Paket in ein ausführbares JAR-File umgewandelt.
 	
